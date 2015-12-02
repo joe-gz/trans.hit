@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var conn = mongoose.connect('mongodb://localhost/trans.hit')
+var conn = mongoose.connect('mongodb://localhost/transhit')
 var StationModel = require("../models/station")
 var CommentModel = require("../models/comment")
 var UserModel = require("../models/user")
@@ -14,12 +14,12 @@ UserModel.remove({}, function(err){
   console.log(err)
 })
 
-var dupont = new Station({
+var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
 })
 
-var mcPherson = new Station({
+var mcPherson = new StationModel({
   name:"McPherson Square",
-  metroLine:["Orange","Blue","Silver"]
+  metroLine:"Orange,Blue,Silver"
 })

@@ -11,7 +11,7 @@ var commentsController = require("./controllers/commentsController")
 //placeholder for users
 var usersController = require("./controllers/usersController")
 
-mongoose.connect('mongodb://localhost/trans.hit')
+mongoose.connect('mongodb://localhost/transhit')
 var app = express()
 // sets view engine to handlebars
 // app.set("view engine", "hbs")
@@ -29,4 +29,4 @@ app.listen(4000, function(){
 })
 
 // first route we'll define together ...
-app.get("/stations", stationsController.index)
+// app.get("/stations", stationsController.index)
