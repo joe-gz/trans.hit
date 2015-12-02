@@ -1,19 +1,15 @@
 
 user stories
     bronze
-    - user needs ability to log in
-    - user needs to be able to log out
-    - user needs to be able to sign up
-    - can request forgotten password
-    - click on a station link
-    - make a comment
-    - developers can access api data
-    - api has number of comments per station / total users
-    - user can delete comments
-    - user can edit comments
+    - As a user, I need to be able to login and out.
+    - As a user, I need to be able to sign up
+    - As a user, I need to be able to click on a stations link and see info about that station
+    - As a user, I need to make a comment and have those comments assigned to a station
+    - As a developer, i need to be able to have other developers access API
+    - As a developer, I need to have the number of comments per station/total users.
 
 
     gold
-    - user can rate station
-    - user can create emoji
-    - click on station map
+    - As a user, I want to be able to rate station
+    - As a user, I wanted to be able to create an emoji that reflect the emotions I'm feeling at the current station
+    - As a user,  I want to be able to click on station map
