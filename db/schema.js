@@ -20,8 +20,10 @@ var CommentSchema = new Schema({
 var CommentSchema = new Schema({
   name: String,
   email: String,
-  password: String, 
+  password: String,
 })
 
 var StationSchema = mongoose.model("Station", StationSchema)
 var CommentSchema = mongoose.model("Comment", CommentSchema)
+//placeholder for user
+var UserSchema = mongoose.model("User", UserSchema)
