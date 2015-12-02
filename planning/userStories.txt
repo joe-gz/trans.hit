@@ -1,0 +1,19 @@
+
+user stories
+    bronze
+    - user needs ability to log in
+    - user needs to be able to log out
+    - user needs to be able to sign up
+    - can request forgotten password
+    - click on a station link
+    - make a comment
+    - developers can access api data
+    - api has number of comments per station / total users
+    - user can delete comments
+    - user can edit comments
+
+
+    gold
+    - user can rate station
+    - user can create emoji
+    - click on station map
