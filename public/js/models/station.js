@@ -9,7 +9,7 @@ var Station = function(info){
 
 Station.all = []
 Station.fetch = function(){
-  var url = "http://localhost:4000/stations";
+  var url = "http://localhost:4000/stations.json";
   var request = $.getJSON(url).then(function(response){
     for(var i = 0; i < response.length; i++){
       Station.all.push(new Station(response[i]));
