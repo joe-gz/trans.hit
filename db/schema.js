@@ -11,7 +11,7 @@ var UserSchema = new Schema({
 })
 
 var CommentSchema = new Schema({
-  Text: String,
+  text: String,
   user: [UserSchema]
 })
 
@@ -19,7 +19,7 @@ var StationSchema = new Schema({
   name: String,
   metroLine: String,
   description: String,
-  comment: [CommentSchema]
+  comments: [CommentSchema]
 })
 
 

@@ -17,19 +17,41 @@ UserModel.remove({}, function(err){
 var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
-}).save();
+})
 
 var mcPherson = new StationModel({
   name:"McPherson Square",
   metroLine:"Orange,Blue,Silver"
-}).save();
+})
 
 var metroCenter = new StationModel({
   name:"Metro Center",
   metroLine:"Orange,Blue,Silver",
-}).save();
+})
 
-var stations = [dupont, mcPherson,metroCenter];
-for (var i = 0;i<stations.length;i++){
-  console.log(dupont);
+var comment1 = new CommentModel({
+  text:"Dupont is the worst"
+})
+
+var comment2 = new CommentModel({
+  text:"mcPhereson is the 2nd worst"
+})
+
+var comment3 = new CommentModel({
+  text:"Metro Center is fine"
+})
+
+var stations = [dupont,mcPherson,metroCenter];
+console.log(stations);
+var comments = [comment1,comment2,comment3];
+console.log(comments);
+for(var i = 0; i < stations.length; i++){
+  stations[i].comments.push(comments[i])
+  stations[i].save(function(err){
+    if (err){
+      console.log(err)
+    }else {
+      console.log("station/comment was saved")
+    }
+  })
 }

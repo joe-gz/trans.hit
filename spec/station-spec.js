@@ -19,14 +19,14 @@ describe ("a Station",function() {
 
 });
 
-describe ("a Station",function() {
+describe ("a User",function() {
   var joe;
   beforeEach(function(){
     joe = new User({name:"Joe",email:"j@example.com",password:"12345678"});
   })
 
   it ("should have a name", function() {
-    expect(joe.name).toBeDefined();
+    expect(joe.name).toBe("Joe");
   });
 
   it ("should have an email", function() {
