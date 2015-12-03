@@ -1,5 +1,3 @@
-var StationModel = require("../models/station")
-var UserModel = require("../models/user")
 var Station = require("../models/station")
 var User = require("../models/user")
 

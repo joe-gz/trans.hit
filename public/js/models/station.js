@@ -6,4 +6,16 @@ var Station = function(info){
   this.id = info.id;
 };
 
-module.exports = Station;
+
+Station.all = []
+Station.fetch = function(){
+  var url = "http://localhost:4000/stations";
+  var request = $.getJSON(url).then(function(response){
+    for(var i = 0; i < response.length; i++){
+      Station.all.push(new Station(response[i]));
+    }
+  }).fail(function(response){
+    console.log("js failed to load");
+  });
+  return request;
+};

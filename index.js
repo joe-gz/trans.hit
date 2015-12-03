@@ -11,6 +11,8 @@ var commentsController = require("./controllers/commentsController")
 //placeholder for users
 var usersController = require("./controllers/usersController")
 
+var path = require('path')
+
 mongoose.connect('mongodb://localhost/transhit')
 var app = express()
 // sets view engine to handlebars
@@ -21,7 +23,9 @@ app.use(bodyParser.urlencoded({extended:true}))
 // allows for put/delete request in html form
 app.use(methodOverride('_method'))
 // connects assets like stylesheets
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname , '/public')))
+
+var StationModel = require("./models/station");
 
 // app server located on port 4000
 app.listen(4000, function(){
@@ -29,15 +33,21 @@ app.listen(4000, function(){
 })
 
 // first route we'll define together ...
-app.get("/", function(req, res){
-  res.render("index.html");
+app.get("/stations", function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
 });
 
-app.use("*.json",function (req, res, next) {
-  req.headers.accept = 'application/json';
-  next();
+app.get("/stations.json", function(req, res){
+  StationModel.find({}).then(function(stations){
+    res.json(stations);
+  });
 });
+//
+// app.use("*.json",function (req, res, next) {
+//   req.headers.accept = 'application/json';
+//   next();
+// });
 
-app.use("/stations/?:format?", require("./controllers/stationsController"));
+// app.use("/stations:format?", require("./controllers/stationsController"));
 
 // app.get("/stations", stationsController.index)
