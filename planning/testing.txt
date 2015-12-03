@@ -1,0 +1,15 @@
+Describe a Station
+  it should have a name
+  it should have a color line
+  it should have comments
+
+Describe a User
+  it should have a name
+  it should have an email
+  it should have a password
+  it should be able to comment
+
+Describe a Comment
+  it should have text
+  it should have a station
+  it should have a user

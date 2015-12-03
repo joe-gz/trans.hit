@@ -29,4 +29,10 @@ app.listen(4000, function(){
 })
 
 // first route we'll define together ...
+app.get("/", function(req, res){
+  res.render("index.html");
+});
+
+app.use("/stations", require("./controllers/stationsController"));
+
 // app.get("/stations", stationsController.index)

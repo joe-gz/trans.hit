@@ -23,10 +23,6 @@ var StationSchema = new Schema({
 })
 
 
-
-//placeholder for user
-
-
 var StationSchema = mongoose.model("Station", StationSchema)
 var CommentSchema = mongoose.model("Comment", CommentSchema)
 //placeholder for user

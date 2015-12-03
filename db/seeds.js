@@ -17,9 +17,19 @@ UserModel.remove({}, function(err){
 var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
-})
+}).save();
 
 var mcPherson = new StationModel({
   name:"McPherson Square",
   metroLine:"Orange,Blue,Silver"
-})
+}).save();
+
+var metroCenter = new StationModel({
+  name:"Metro Center",
+  metroLine:"Orange,Blue,Silver",
+}).save();
+
+var stations = [dupont, mcPherson,metroCenter];
+for (var i = 0;i<stations.length;i++){
+  console.log(dupont);
+}
