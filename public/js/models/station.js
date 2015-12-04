@@ -2,14 +2,15 @@ var Station = function(info){
   this.name = info.name;
   this.metroLine = info.metroLine;
   this.description = info.description;
-  this.comment = info.comment;
-  this.id = info.id;
+  this.comments = info.comments;
+  this.id = info._id;
+  console.log(info);
 };
 
 
 Station.all = []
 Station.fetch = function(){
-  var url = "http://localhost:4000/stations.json";
+  var url = "http://localhost:4000/stations";
   var request = $.getJSON(url).then(function(response){
     for(var i = 0; i < response.length; i++){
       Station.all.push(new Station(response[i]));
@@ -23,7 +24,7 @@ Station.fetch = function(){
 Station.prototype = {
   fetchComments: function(){
     var station = this;
-    var url = "http://localhost:4000/stations/" + station.id + "/comments.json";
+    var url = "http://localhost:4000/stations/" + station.id + "/comments";
     // var url = "http://localhost:4000/stations.json";
     station.comments = [];
     var request = $.getJSON(url).then(function(response){
