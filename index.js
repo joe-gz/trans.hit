@@ -15,8 +15,7 @@ var path = require('path')
 
 mongoose.connect('mongodb://localhost/transhit')
 var app = express()
-// sets view engine to handlebars
-// app.set("view engine", "hbs")
+
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -28,21 +27,42 @@ app.use(express.static(path.join(__dirname , '/public')))
 var StationModel = require("./models/station");
 var CommentModel = require("./models/comment");
 
+
+app.use("*.json",function (req, res, next) {
+  req.headers.accept = 'application/json';
+  next();
+});
+
+var stationsController = require('./controllers/stationsController.js');
+
+
 // app server located on port 4000
 app.listen(4000, function(){
   console.log("app listening on port 4000")
 })
 
-// first route we'll define together ...
-app.get("/stations", function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
-});
 
-app.get("/stations.json", function(req, res){
-  StationModel.find({}).then(function(stations){
-    res.json(stations);
-  });
-});
+app.get('/', function(req, res){
+  res.redirect('/stations')
+})
+
+// INDEX route
+app.get( "/stations.:format?", stationsController.index);
+
+
+
+
+
+// first route we'll define together ...
+// app.get("/stations", function(req, res){
+//   res.sendFile(__dirname + '/public/index.html');
+// });
+//
+// app.get("/stations.json", function(req, res){
+//   StationModel.find({}).then(function(stations){
+//     res.json(stations);
+//   });
+// });
 
 // app.get("/comments.json", function(req, res){
 //   CommentModel.find({}).then(function(comments){
