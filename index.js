@@ -47,33 +47,3 @@ app.use("/", stationsController);
 app.listen(4000, function(){
   console.log("app listening on port 4000")
 })
-
-
-
-
-
-// first route we'll define together ...
-// app.get("/stations", function(req, res){
-//   res.sendFile(__dirname + '/public/index.html');
-// });
-//
-// app.get("/stations.json", function(req, res){
-//   StationModel.find({}).then(function(stations){
-//     res.json(stations);
-//   });
-// });
-
-// app.get("/comments.json", function(req, res){
-//   CommentModel.find({}).then(function(comments){
-//     res.json(comments);
-//   });
-// });
-//
-// app.use("*.json",function (req, res, next) {
-//   req.headers.accept = 'application/json';
-//   next();
-// });
-
-// app.use("/stations:format?", require("./controllers/stationsController"));
-
-// app.get("/stations", stationsController.index)
