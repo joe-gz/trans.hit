@@ -2,7 +2,7 @@ var Station = function(info){
   this.name = info.name;
   this.metroLine = info.metroLine;
   this.description = info.description;
-  this.comments = info.comments;
+  this.comment = info.comments;
   this.id = info._id;
   console.log(info);
 };
