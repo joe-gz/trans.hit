@@ -26,6 +26,7 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname , '/public')))
 
 var StationModel = require("./models/station");
+var CommentModel = require("./models/comment");
 
 // app server located on port 4000
 app.listen(4000, function(){
@@ -42,6 +43,12 @@ app.get("/stations.json", function(req, res){
     res.json(stations);
   });
 });
+
+// app.get("/comments.json", function(req, res){
+//   CommentModel.find({}).then(function(comments){
+//     res.json(comments);
+//   });
+// });
 //
 // app.use("*.json",function (req, res, next) {
 //   req.headers.accept = 'application/json';

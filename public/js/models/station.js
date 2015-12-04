@@ -19,3 +19,20 @@ Station.fetch = function(){
   });
   return request;
 };
+
+Station.prototype = {
+  fetchComments: function(){
+    var station = this;
+    var url = "http://localhost:4000/stations/" + station.id + "/comments.json";
+    // var url = "http://localhost:4000/stations.json";
+    station.comments = [];
+    var request = $.getJSON(url).then(function(response){
+      for(var i = 0; i < response.length; i++){
+        station.comments.push(new Comment(response[i]));
+      }
+    }).fail(function(repsonse){
+      console.log("js failed to load");
+    });
+    return request;
+  }
+}

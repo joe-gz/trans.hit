@@ -9,17 +9,29 @@ StationView.prototype = {
   render: function(){
     var self = this;
     self.$el.html(self.StationTemplate());
-    // var showButton = self.$el.find(".showSongs");
-    // var songsDiv   = self.$el.find("div.songs");
-    // songsDiv.hide();
+    var commentsDiv = self.$el.find("div.comments");
+    self.showComments(commentsDiv)
+  },
+  appendComments: function(comments, commentsDiv){
+    comments.forEach(function(comment){
+      var commentView = new CommentView(comment);
+      commentsDiv.append(commentView.render());
+    });
   },
   StationTemplate: function(){
     var station = this.station;
     var html = $("<div>");
     html.append("<h3>" + station.name + "</h3>");
-    // html.append("<img class='station-photo' src='" + station.photoUrl + "'>");
-    // html.append("<button class='showSongs'>Show Songs</button>");
-    // html.append("<div class='songs'></div>");
+    html.append("<div class='comments'></div>");
     return(html);
+  },
+  showComments: function(commentsDiv){
+    var self = this;
+    // if not in DOM, populate
+    if(commentsDiv.children().length === 0){
+      self.station.fetchComments().then(function(){
+        self.appendComments(self.station.comments, commentsDiv);
+      });
+    }
   }
 };
