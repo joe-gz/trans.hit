@@ -11,11 +11,13 @@ StationView.prototype = {
     self.$el.html(self.StationTemplate());
     var commentsDiv = self.$el.find("div.comments");
     self.showComments(commentsDiv)
+    commentsDiv.append("<input name='comment' placeholder='enter new comment'>");
+    commentsDiv.append("<button class='submitComment'>Submit Comment</button>");
   },
   appendComments: function(comments, commentsDiv){
     comments.forEach(function(comment){
       var commentView = new CommentView(comment);
-      commentsDiv.append(commentView.render());
+      commentsDiv.prepend(commentView.render());
     });
   },
   StationTemplate: function(){
