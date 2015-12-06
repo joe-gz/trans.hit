@@ -21,6 +21,7 @@ app.use(methodOverride('_method'))
 // connects assets like stylesheets
 app.use(express.static(path.join(__dirname, "public")));
 
+
 var StationModel = require("./models/station");
 var CommentModel = require("./models/comment");
 
@@ -47,3 +48,8 @@ app.use("/", stationsController);
 app.listen(4000, function(){
   console.log("app listening on port 4000")
 })
+//making user global
+app.use(function (req, res, next) {
+   res.locals.currentUser = req.user;
+   next();
+ });

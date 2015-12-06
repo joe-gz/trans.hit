@@ -1,10 +1,22 @@
-require("../db/schema")
+// require("../db/schema")
 var mongoose = require('mongoose')
 
-var UserModel = mongoose.model("User")
-//encrypt password 
+var bcrypt   = require('bcrypt-nodejs');
+
+var User = mongoose.Schema({
+  local : {
+    email        : String,
+    password     : String,
+  }
+});
+
+//compare password
+User.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
+//encrypt password
 User.methods.encrypt = function(password) {
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
  };
 
-module.exports = UserModel
+module.exports = mongoose.model('User', User);

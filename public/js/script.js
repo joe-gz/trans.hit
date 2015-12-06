@@ -5,4 +5,10 @@ $(document).ready(function(){
       view.render();
     })
   })
-});
+
+  $('.signup').on('click', function(){
+    $('.signup-form').toggleClass('hidden')
+    // e.preventDefault()
+  })
+
+});//document.ready end
