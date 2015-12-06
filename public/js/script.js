@@ -8,7 +8,10 @@ $(document).ready(function(){
 
   $('.signup').on('click', function(){
     $('.signup-form').toggleClass('hidden')
-    // e.preventDefault()
+  })
+
+  $('.login').on('click', function(){
+    $('.login-form').toggleClass('hidden')
   })
 
 });//document.ready end
