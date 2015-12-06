@@ -11,10 +11,13 @@ StationView.prototype = {
     self.$el.html(self.StationTemplate());
     var commentsDiv = self.$el.find("div.comments");
     self.showComments(commentsDiv)
-    commentsDiv.append("<input name='comment' placeholder='enter new comment'>");
+    commentsDiv.append("<input name='"+self.station.id+"' placeholder='enter new comment'>");
     commentsDiv.append("<button class='submitComment'>Submit Comment</button>");
+    self.$el.find(".submitComment").on("click", function() {
+      self.submitComment();
+    });
   },
-  appendComments: function(comments, commentsDiv){
+  prependComment: function(comments, commentsDiv){
     comments.forEach(function(comment){
       var commentView = new CommentView(comment);
       commentsDiv.prepend(commentView.render());
@@ -32,8 +35,16 @@ StationView.prototype = {
     // if not in DOM, populate
     if(commentsDiv.children().length === 0){
       self.station.fetchComments().then(function(){
-        self.appendComments(self.station.comments, commentsDiv);
+        self.prependComment(self.station.comments, commentsDiv);
       });
     }
+  },
+  submitComment: function() {
+    var self = this;
+    var data = $('input[name='+self.station.id+']').val()
+    var commentView = new CommentView({text: data});
+    var commentsDiv = self.$el.find("div.comments");
+    self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
+    // commentsDiv.prepend(commentView.render());
   }
 };
