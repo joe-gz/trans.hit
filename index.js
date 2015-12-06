@@ -36,7 +36,7 @@ var usersController = require("./controllers/usersController")
 // var stationsController = require('./controllers/stationsController.js');
 
 app.get('/', function(req, res){
-  console.log("working?");
+  // console.log("working?");
   res.sendFile(__dirname + '/public/html/index.html')
 })
 
