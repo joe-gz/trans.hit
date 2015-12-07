@@ -22,5 +22,18 @@ router.get("/stations/:id/comments", function(req, res){
   });
 });
 
+router.post("/stations/:id/comments", function(req, res){
+  // new CommentModel(req.body.text).save().then(function(comment){
+  //   res.json(comment);
+  //     });
+  //
+  // StationModel.findById(req.params.id).populate("comments").then(function(station){
+  //   res.json(station.comments);
+
+  CommentModel.create(req.body).then(function(comment){
+    res.json(comment);
+  });
+});
+
 module.exports = router;
 // module.exports = router;

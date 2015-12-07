@@ -39,21 +39,30 @@ Station.prototype = {
   newCommentAdd: function(commentData) {
     var station = this;
     console.log("hello");
-    var url = "http://localhost:4000/stations/" + station.id + "/comments";
+    var url = "/stations/" + String(station.id) + "/comments";
     console.log("goodbye");
     var request = $.ajax({
       url: url,
       method: "POST",
       data: JSON.stringify(commentData),
-      contentType : 'application/json'
+      dataType:"JSONP",
+      contentType : "application/json",
+      success: function(commentData){
+        alert('Success!')
+      }
+      , error: function(jqXHR, textStatus, err){
+        console.log(textStatus)
+      }
     }).then(
-      function(addCommentInfo) {self.reload(addCommentInfo);}
+      console.log("Done")
+      // function(addCommentInfo) {self.reload(addCommentInfo);}
     );
     return request;
-  },
-  reload: function(newData){
-    for(var attrname in newData) {
-      this[attrname] = newData[attrname];
-    }
   }
+  // ,
+  // reload: function(newData){
+  //   for(var attrname in newData) {
+  //     this[attrname] = newData[attrname];
+  //   }
+  // }
 }

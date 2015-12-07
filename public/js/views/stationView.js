@@ -1,6 +1,6 @@
 var StationView = function(station){
   this.station = station;
-  this.$el = $("<div class='station'></div>");
+  this.$el = $("<div></div>");
   this.render();
   $(".stations").append(this.$el);
 };
@@ -8,11 +8,12 @@ var StationView = function(station){
 StationView.prototype = {
   render: function(){
     var self = this;
+    var station = self.station;
     self.$el.html(self.StationTemplate());
     var commentsDiv = self.$el.find("div.comments");
     self.showComments(commentsDiv)
-    commentsDiv.append("<input name='"+self.station.id+"' placeholder='enter new comment'>");
-    commentsDiv.append("<button class='submitComment'>Submit Comment</button>");
+    commentsDiv.append("<form action=http://localhost:4000/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
+    commentsDiv.append("<button class='submitComment'>Submit Comment</button></form>");
     self.$el.find(".submitComment").on("click", function() {
       self.submitComment();
     });
@@ -25,7 +26,7 @@ StationView.prototype = {
   },
   StationTemplate: function(){
     var station = this.station;
-    var html = $("<div>");
+    var html = $("<div class='station'>");
     html.append("<h3>" + station.name + "</h3>");
     html.append("<div class='comments'></div>");
     return(html);
