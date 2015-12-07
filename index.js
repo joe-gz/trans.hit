@@ -15,7 +15,6 @@ var path = require('path')
 
 mongoose.connect('mongodb://localhost/transhit')
 
-
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -24,6 +23,8 @@ app.use(methodOverride('_method'))
 // connects assets like stylesheets
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -56,7 +57,7 @@ app.use(function (req, res, next) {
 
 var routes = require('./config/routes');
 app.use(routes);
-// require('./config/routes')(app);
+
 
  // app server located on port 4000
  app.listen(4000, function(){

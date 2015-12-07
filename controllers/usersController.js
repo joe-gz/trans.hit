@@ -1,6 +1,7 @@
 
 var passport = require("passport")
-
+var mongoose = require('mongoose')
+var session      = require('express-session');
 // GET /signup
 function getSignup(request, response) {
   // response.render("signup.hbs", { message: request.flash('signupMessage') });
@@ -39,7 +40,7 @@ function getLogout(request, response) {
 
 // Restricted page
 function secret(request, response){
-  response.render("index.html");
+  // response.render("index.html");
 }
 
 module.exports = {

@@ -1,11 +1,15 @@
 
 .metromapimg{
-  background-image: url("images/metromap.jpg");
-  height:500px;
-  width: 500px;
+  background-image: url("/images/metromap1.jpg");
+  height:700px;
+  width: 100%;
   border: 3px solid black;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  /*background-attachment: fixed;*/
 }
 
-/*body{
-  background: red;
-}*/
+body{
+padding: 100px;
+}
