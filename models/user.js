@@ -1,6 +1,5 @@
-// require("../db/schema")
+require("../db/schema")
 var mongoose = require('mongoose')
-
 var bcrypt   = require('bcrypt-nodejs');
 
 var User = mongoose.Schema({
@@ -10,7 +9,7 @@ var User = mongoose.Schema({
   }
 });
 
-//compare password
+// compare password
 User.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 };

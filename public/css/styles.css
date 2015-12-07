@@ -1,15 +1,11 @@
 
-
-
-/*keep form hidden until click*/
-.signup-form{
-  display:none;
+.metromapimg{
+  background-image: url("images/metromap.jpg");
+  height:500px;
+  width: 500px;
+  border: 3px solid black;
 }
 
-p{
-  font-size: 50px;
-}
-
-body{
-  background: pink ; 
-}
+/*body{
+  background: red;
+}*/

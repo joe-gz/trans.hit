@@ -6,7 +6,9 @@ var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 // loads dependency that allows put and delete where not supported in html
 var methodOverride = require('method-override')
-//placeholder for users
+var passport     = require('passport');
+// var session      = require('express-session');
+
 
 var path = require('path')
 
@@ -21,20 +23,17 @@ app.use(methodOverride('_method'))
 // connects assets like stylesheets
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 var StationModel = require("./models/station");
 var CommentModel = require("./models/comment");
+var UserModel = require("./models/user");
 
 var stationsController = require("./controllers/stationsController")
 var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
-// app.use("*.json",function (req, res, next) {
-//   req.headers.accept = 'application/json';
-//   next();
-// });
-
-// var stationsController = require('./controllers/stationsController.js');
 
 app.get('/', function(req, res){
   // console.log("working?");
@@ -42,16 +41,23 @@ app.get('/', function(req, res){
 })
 
 // INDEX route
-// app.get( "/stations.:format?", stationsController.index);
+
 app.use("/", stationsController);
 
-// app server located on port 4000
-app.listen(4000, function(){
-  console.log("app listening on port 4000")
-})
+
 //making user global
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 app.use(function (req, res, next) {
-   res.locals.currentUser = req.user;
-   next();
- });
+  global.currentUser = req.user;
+  res.locals.currentUser = req.user;
+  next();
+});
+
+var routes = require('./config/routes');
+app.use(routes);
+// require('./config/routes')(app);
+
+ // app server located on port 4000
+ app.listen(4000, function(){
+   console.log("app listening on port 4000")
+ })

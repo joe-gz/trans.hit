@@ -1,35 +1,52 @@
 
+var passport = require("passport")
 
+// GET /signup
 function getSignup(request, response) {
-   response.render('userView.js', { message: request.flash('signupMessage') });
- };
+  // response.render("signup.hbs", { message: request.flash('signupMessage') });
+}
 
-//calling pasport method to redirect on success or failure
+// POST /signup
 function postSignup(request, response) {
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect : '/',
     failureRedirect : '/',
     failureFlash : true
   });
-
   return signupStrategy(request, response);
 }
 
+// GET /login
 function getLogin(request, response) {
-  response.render('login.html', { message: request.flash('loginMessage') });
+  // response.render('login.hbs', { message: request.flash('loginMessage') });
 }
 
+// POST /login
 function postLogin(request, response) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/',
     failureRedirect : '/',
     failureFlash : true
   });
-
   return loginProperty(request, response);
 }
 
+// GET /logout
 function getLogout(request, response) {
   request.logout();
   response.redirect('/');
 }
+
+// Restricted page
+function secret(request, response){
+  response.render("index.html");
+}
+
+module.exports = {
+  getLogin: getLogin,
+  postLogin: postLogin ,
+  getSignup: getSignup,
+  postSignup: postSignup,
+  getLogout: getLogout,
+  secret: secret
+};

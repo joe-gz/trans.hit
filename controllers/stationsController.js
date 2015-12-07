@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var StationModel = require("../models/station");
 var CommentModel = require("../models/comment");
+
 var path = require('path');
 
 router.get("/stations", function(req, res){

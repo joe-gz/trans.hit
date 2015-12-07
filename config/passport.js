@@ -66,3 +66,5 @@ var LocalStrategy   = require('passport-local').Strategy;
          callback(err, user);
      });
    });
+}
+}

@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-// var usersController = require('../controllers/users');
+
 var usersController = require('../controllers/usersController');
-var staticsController = require('../controllers/statics');
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
@@ -12,14 +11,14 @@ function authenticatedUser(req, res, next) {
   res.redirect('/');
 }
 
-router.route('/')
-  .get(staticsController.home);
+// router.route('/')
+//   .get(usersController);
 
-router.route('/')
+router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup);
 
-router.route('/')
+router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin);
 
