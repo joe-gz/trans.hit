@@ -28,13 +28,6 @@ var stationsController = require("./controllers/stationsController")
 var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
-// app.use("*.json",function (req, res, next) {
-//   req.headers.accept = 'application/json';
-//   next();
-// });
-
-// var stationsController = require('./controllers/stationsController.js');
-
 app.get('/', function(req, res){
   console.log("working?");
   res.sendFile(__dirname + '/public/html/index.html')
@@ -43,6 +36,8 @@ app.get('/', function(req, res){
 // INDEX route
 // app.get( "/stations.:format?", stationsController.index);
 app.use("/", stationsController);
+app.use("/", commentsController);
+
 // app server located on port 4000
 app.listen(4000, function(){
   console.log("app listening on port 4000")
