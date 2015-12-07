@@ -1,5 +1,6 @@
 // express dependency for our application
 var express = require('express')
+var app = express()
 // loads mongoose dependency
 var mongoose = require('mongoose')
 // loads dependency for middleware for paramters
@@ -7,13 +8,13 @@ var bodyParser = require('body-parser')
 // loads dependency that allows put and delete where not supported in html
 var methodOverride = require('method-override')
 var passport     = require('passport');
-// var session      = require('express-session');
+var session      = require('express-session');
 
 
 var path = require('path')
 
 mongoose.connect('mongodb://localhost/transhit')
-var app = express()
+
 
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
