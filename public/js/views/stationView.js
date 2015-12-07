@@ -2,7 +2,7 @@ var StationView = function(station){
   this.station = station;
   this.$el = $("<div></div>");
   this.render();
-  $(".stations").append(this.$el);
+  $(".stations").prepend(this.$el);
 };
 
 StationView.prototype = {
@@ -11,19 +11,12 @@ StationView.prototype = {
     var station = self.station;
     self.$el.html(self.StationTemplate());
     var commentsDiv = self.$el.find("div.comments");
+    var stationInfo = self.$el.find(".stationInfo")
     var showButton = self.$el.find(".showComments");
     commentsDiv.hide(); // hide div until it's populated with comments
     showButton.on("click", function(){
       self.toggleComments(commentsDiv);
     });
-    // self.$el.find(".submitComment").on("click", function() {
-    //   console.log("working?");
-    //   self.submitComment();
-    // });
-    // self.showComments(commentsDiv)
-    // commentsDiv.append("<form action=http://localhost:4000/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
-    // commentsDiv.append("<button class='submitComment'>Submit Comment</button></form>");
-
   },
   toggleButton: function(commentsDiv){
     if(commentsDiv.is(":visible")){
@@ -66,15 +59,6 @@ StationView.prototype = {
     html.append("<div class='comments'></div>");
     return(html);
   },
-  showComments: function(commentsDiv){
-    var self = this;
-    // if not in DOM, populate
-    if(commentsDiv.children().length === 0){
-      self.station.fetchComments().then(function(){
-        self.prependComments(self.station.comments, commentsDiv);
-      });
-    }
-  },
   submitComment: function() {
     var self = this;
     console.log(self);
@@ -82,8 +66,20 @@ StationView.prototype = {
     console.log(data);
     var commentView = new CommentView({text: data});
     var commentsDiv = self.$el.find("div.comments");
+    var stationInfo = self.$el.find(".stationInfo")
     console.log(commentsDiv);
     self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
     // commentsDiv.prepend(commentView.render());
+  },
+  singleStationView: function(){
+    var station = this.station;
+    var html = $("<div class='stationInfo'>");
+    html.append("<h3>" + station.name + "</h3>");
+    return(html);
+  },
+  renderInfo: function(){
+    var self = this;
+    var station = self.station;
+    self.$el.html(self.singleStationView());
   }
 };

@@ -54,14 +54,7 @@ Station.prototype = {
       }
     }).then(
       console.log("Done")
-      // function(addCommentInfo) {station.reload(addCommentInfo);}
     );
     return request;
   }
-  // ,
-  // reload: function(newData){
-  //   for(var attrname in newData) {
-  //     this[attrname] = newData[attrname];
-  //   }
-  // }
 }
