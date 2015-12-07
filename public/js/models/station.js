@@ -35,5 +35,26 @@ Station.prototype = {
       console.log("js failed to load");
     });
     return request;
+  },
+  newCommentAdd: function(commentData) {
+    var station = this;
+    console.log("hello");
+    var url = "/stations/" + String(station.id) + "/comments";
+    console.log("goodbye");
+    var request = $.ajax({
+      url: url,
+      method: "POST",
+      data: JSON.stringify(commentData),
+      contentType : "application/json",
+      success: function(commentData){
+        console.log('Success!');
+      }
+      , error: function(jqXHR, textStatus, err){
+        console.log(textStatus)
+      }
+    }).then(
+      console.log("Done")
+    );
+    return request;
   }
 }

@@ -1,10 +1,10 @@
 var CommentView = function(comment){
-  this.comment = comment;
+  this.comments = comment;
 }
 
 CommentView.prototype = {
   render: function(){
-    var commentText = $("<p>" + this.comment.text + "</p>");
+    var commentText = $("<p>" + this.comments.text + "</p>");
     return(commentText)
   }
 }

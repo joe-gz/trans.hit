@@ -45,6 +45,8 @@ app.get('/', function(req, res){
 // INDEX route
 
 app.use("/", stationsController);
+app.use("/", commentsController);
+
 
 
 //making user global
