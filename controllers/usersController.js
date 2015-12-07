@@ -1,14 +1,14 @@
 
 
 function getSignup(request, response) {
-   response.render('../signup.html', { message: request.flash('signupMessage') });
+   response.render('userView.js', { message: request.flash('signupMessage') });
  };
 
 //calling pasport method to redirect on success or failure
 function postSignup(request, response) {
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect : '/',
-    failureRedirect : '/signup',
+    failureRedirect : '/',
     failureFlash : true
   });
 
@@ -22,7 +22,7 @@ function getLogin(request, response) {
 function postLogin(request, response) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/',
-    failureRedirect : '/login',
+    failureRedirect : '/',
     failureFlash : true
   });
 

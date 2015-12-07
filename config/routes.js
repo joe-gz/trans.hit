@@ -15,11 +15,11 @@ function authenticatedUser(req, res, next) {
 router.route('/')
   .get(staticsController.home);
 
-router.route('/signup')
+router.route('/')
   .get(usersController.getSignup)
   .post(usersController.postSignup);
 
-router.route('/login')
+router.route('/')
   .get(usersController.getLogin)
   .post(usersController.postLogin);
 

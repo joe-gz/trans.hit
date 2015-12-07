@@ -44,11 +44,13 @@ app.get('/', function(req, res){
 // INDEX route
 // app.get( "/stations.:format?", stationsController.index);
 app.use("/", stationsController);
+
 // app server located on port 4000
 app.listen(4000, function(){
   console.log("app listening on port 4000")
 })
 //making user global
+// require('./config/passport')(passport);
 app.use(function (req, res, next) {
    res.locals.currentUser = req.user;
    next();
