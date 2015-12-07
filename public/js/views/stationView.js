@@ -83,7 +83,7 @@ StationView.prototype = {
     var commentView = new CommentView({text: data});
     var commentsDiv = self.$el.find("div.comments");
     console.log(commentsDiv);
-    // self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
-    commentsDiv.prepend(commentView.render());
+    self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
+    // commentsDiv.prepend(commentView.render());
   }
 };

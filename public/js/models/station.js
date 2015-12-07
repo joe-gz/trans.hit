@@ -45,17 +45,16 @@ Station.prototype = {
       url: url,
       method: "POST",
       data: JSON.stringify(commentData),
-      dataType:"JSONP",
       contentType : "application/json",
       success: function(commentData){
-        alert('Success!')
+        console.log('Success!');
       }
       , error: function(jqXHR, textStatus, err){
         console.log(textStatus)
       }
     }).then(
       console.log("Done")
-      // function(addCommentInfo) {self.reload(addCommentInfo);}
+      // function(addCommentInfo) {station.reload(addCommentInfo);}
     );
     return request;
   }
