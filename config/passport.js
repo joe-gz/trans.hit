@@ -9,6 +9,7 @@ var LocalStrategy   = require('passport-local').Strategy;
    passwordField : 'password',
    passReqToCallback : true
  }, function(req, email, password, callback) {
+   console.log("middle wear at least is being hit")
    // Search for a user with this email
        User.findOne({ 'local.email' :  email }, function(err, user) {
          if (err) {
