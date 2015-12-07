@@ -70,16 +70,17 @@ StationView.prototype = {
     console.log(commentsDiv);
     self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
     // commentsDiv.prepend(commentView.render());
-  },
-  singleStationView: function(){
-    var station = this.station;
-    var html = $("<div class='stationInfo'>");
-    html.append("<h3>" + station.name + "</h3>");
-    return(html);
-  },
-  renderInfo: function(){
-    var self = this;
-    var station = self.station;
-    self.$el.html(self.singleStationView());
   }
+  // ,
+  // singleStationView: function(){
+  //   var station = this.station;
+  //   var html = $("<div class='stationInfo'>");
+  //   html.append("<h3>" + station.name + "</h3>");
+  //   return(html);
+  // },
+  // renderInfo: function(){
+  //   var self = this;
+  //   var station = self.station;
+  //   self.$el.html(self.singleStationView());
+  // }
 };
