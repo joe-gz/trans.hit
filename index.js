@@ -9,7 +9,7 @@ var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
 var passport     = require('passport');
 var session      = require('express-session');
-
+var hbs          = require("hbs");
 
 var path = require('path')
 
@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 // connects assets like stylesheets
 app.use(express.static(path.join(__dirname, "public")));
+app.set('view engine', 'hbs');
+app.set("views","./public/html");
 
 
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
@@ -39,7 +41,8 @@ var usersController = require("./controllers/usersController")
 
 app.get('/', function(req, res){
   // console.log("working?");
-  res.sendFile(__dirname + '/public/html/index.html')
+  // res.sendFile(__dirname + '/public/html/index.hbs')
+  res.render( "index.hbs" )
 })
 
 // INDEX route

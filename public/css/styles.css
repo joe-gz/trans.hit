@@ -10,6 +10,14 @@
   /*background-attachment: fixed;*/
 }
 
-body{
-padding: 100px;
+body {
+padding-top: 100px;
+}
+
+/*.hidden{
+  display:none;
+}*/
+
+.signup-form, .login-form {
+  display:none;
 }

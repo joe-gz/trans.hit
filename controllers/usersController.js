@@ -1,35 +1,43 @@
 
 var passport = require("passport")
 var mongoose = require('mongoose')
-var session      = require('express-session');
+var session  = require('express-session');
 require('../config/passport')(passport)
 // GET /signup
 function getSignup(request, response) {
-  // response.render("signup.hbs", { message: request.flash('signupMessage') });
+  response.render("index.hbs"
+  // , { message: request.flash('signupMessage') }
+);
 }
 
 // POST /signup
 function postSignup(request, response) {
+  console.log("Route being hit");
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect : '/',
     failureRedirect : '/',
     failureFlash : true
   });
+  console.log(global.currentUser);
   return signupStrategy(request, response);
 }
 
 // GET /login
 function getLogin(request, response) {
-  // response.render('login.hbs', { message: request.flash('loginMessage') });
+  response.render('index.hbs'
+  // , { message: request.flash('loginMessage') }
+);
 }
 
 // POST /login
 function postLogin(request, response) {
+  console.log("Route being hit");
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/',
     failureRedirect : '/',
     failureFlash : true
   });
+  console.log(global.currentUser);
   return loginProperty(request, response);
 }
 
@@ -37,11 +45,12 @@ function postLogin(request, response) {
 function getLogout(request, response) {
   request.logout();
   response.redirect('/');
+  console.log("Logged out");
 }
 
 // Restricted page
 function secret(request, response){
-  // response.render("index.html");
+  // response.render("index.hbs");
 }
 
 module.exports = {

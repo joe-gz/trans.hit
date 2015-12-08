@@ -4,7 +4,6 @@ var Station = function(info){
   this.description = info.description;
   this.comment = info.comments;
   this.id = info._id;
-  console.log(info);
 };
 
 
