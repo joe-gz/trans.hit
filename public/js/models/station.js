@@ -7,7 +7,7 @@ var Station = function(info){
   console.log(info);
 };
 
-
+//to get all stations
 Station.all = []
 Station.fetch = function(){
   var url = "http://localhost:4000/stations";
@@ -20,7 +20,7 @@ Station.fetch = function(){
   });
   return request;
 };
-
+//to get the comments
 Station.prototype = {
   fetchComments: function(){
     var station = this;
