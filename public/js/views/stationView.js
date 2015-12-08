@@ -12,8 +12,8 @@ StationView.prototype = {
     // self.$el.html(self.stationName());
 
     $('#redline').on('click',function(){
-    self.$el.html(self.stationName());
-      // console.log("clicked")
+    // self.$el.html(self.stationName());
+      console.log("clicked")
     });
   },
 

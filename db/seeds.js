@@ -6,17 +6,36 @@ var UserModel = require("../models/user")
 
 StationModel.remove({}, function(err){
   console.log(err)
-})
+});
 CommentModel.remove({}, function(err){
   console.log(err)
-})
+});
 UserModel.remove({}, function(err){
   console.log(err)
-})
+});
 
 var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
+})
+var fortTotten = new StationModel({
+  name:"Fort Totten",
+  metroLine:"Green",
+})
+
+var vienna = new StationModel({
+  name:"Vienna",
+  metroLine:"Orange",
+})
+
+var greensboro = new StationModel({
+  name:"Greensboro",
+  metroLine:"Silver",
+})
+
+var easternMarket = new StationModel({
+  name:"Eastern Market",
+  metroLine:"Blue",
 })
 
 var mcPherson = new StationModel({
@@ -41,7 +60,7 @@ var comment3 = new CommentModel({
   text:"Metro Center is fine"
 })
 
-var stations = [dupont,mcPherson,metroCenter];
+var stations = [dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];
 console.log(stations);
 var comments = [comment1,comment2,comment3];
 console.log(comments);
