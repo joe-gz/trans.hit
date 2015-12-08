@@ -62,10 +62,10 @@ var comment3 = new CommentModel({
 
 var stations = [dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];
 console.log(stations);
-var comments = [comment1,comment2,comment3];
-console.log(comments);
+// var comments = [comment1,comment2,comment3];
+// console.log(comments);
 for(var i = 0; i < stations.length; i++){
-  stations[i].comments.push(comments[i])
+  // stations[i].comments.push(comments[i])
   stations[i].save(function(err){
     if (err){
       console.log(err)

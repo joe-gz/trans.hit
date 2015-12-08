@@ -9,19 +9,41 @@ StationView.prototype = {
   render: function(){
     var self = this;
     var station = self.station
+    var metro = self.metroLine
     // self.$el.html(self.stationName());
 
-    $('#redline').on('click',function(){
-    // self.$el.html(self.stationName());
-      console.log("clicked")
+    $('#blueline').on('click',function(){
+      if (station.metroLine = "Blue" ){
+            self.$el.html(self.metroLoop());
+
+      }  else {console.log("no blue")}
+
+
+
+      // console.log("clicked")
     });
   },
 
     stationName: function(){
       var station = this.station
+      var metro = station.metroLine
       var html = $("<div class='stationdiv'>");
       html.append("<h3><a>" + station.name + "</a></h3>");
       return(html);
+    },
+
+    metroLoop: function(color){
+      var station = this.station
+      var html = $("<div class='stationdiv'>");
+      var stationList = []
+      for(var i = 0; i < station.length; i++){
+        if (station.metroLine[i] = "Blue"){
+          console.log("loop")
+           html.append ("<h3><a>" + station.name + "</a></h3>")
+        }
+
+        // html.append ("<h3><a>" + stationList + "</a></h3>");
+      }
     }
 
 }//end of stationview
