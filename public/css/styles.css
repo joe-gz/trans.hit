@@ -1,14 +1,22 @@
 
-.metromaping{
+/*.metromaping{
   background-image: url("/images/metromap1.jpg");
-  height:700px;
-  width: 100%;
+  max-width: 100%;
+  height: auto;*/
   /*border: 3px solid black;*/
-  background-repeat: no-repeat;
+  /*background-repeat: no-repeat;
   background-size: 100%;
-  background-position: center center;
+  background-position: center center;*/
   /*background-attachment: fixed;*/
-}
+
+.metromaping {
+      width: 100%;
+      height: 800px;
+      background-image: url("/images/newMetroImg.jpg");
+      /*background-size: cover;*/
+      background-repeat: no-repeat;
+      background-position: center;
+  }
 
 body {
 padding-top: 100px;
