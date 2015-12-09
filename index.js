@@ -43,7 +43,7 @@ app.get('/', function(req, res){
 })
 
 var request = require ("request")
-var env = require("./env")
+// var env = require("./env")
 
 app.get ("/incidents", function(req, res) {
   console.log("Call API?");
