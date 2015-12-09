@@ -10,8 +10,6 @@ var methodOverride = require('method-override')
 var passport     = require('passport');
 var session      = require('express-session');
 var hbs          = require("hbs");
-var http = require('http');
-var server = http.createServer(app);
 
 var path = require('path')
 
@@ -78,6 +76,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
  // app server located on port 4000
- app.listen(process.env.PORT || 4000, function() {
+ app.listen(4000, function() {
    console.log("app listening on port 4000")
  })
