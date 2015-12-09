@@ -38,21 +38,6 @@ var stationsController = require("./controllers/stationsController")
 var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
-var request = require ("request")
-var env = require("./env")
-
-app.get ("/incidents", function(req, res) {
-  var url = "https://api.wmata.com/Incidents.svc/json/Incidents?api_key=" + env.api_key
-  console.log("log out")
-  request(url, function(error, response, body) {
-    console.log(url)
-    var incidents = JSON.parse(body)
-    console.log(body, response, error)
-    res.json(incidents);
-  });
-});
-
-
 app.get('/', function(req, res){
   res.render( "index.hbs" )
 })
