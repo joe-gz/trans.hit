@@ -13,7 +13,7 @@ var hbs          = require("hbs");
 
 var path = require('path')
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/transhit')
+mongoose.connect('mongodb://localhost/transhit')
 
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
@@ -90,6 +90,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
  // app server located on port 4000
- app.listen(4000, function() {
+ app.listen(process.env.PORT || 4000, function() {
    console.log("app listening on port 4000")
  })
