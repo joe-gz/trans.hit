@@ -43,7 +43,11 @@ var usersController = require("./controllers/usersController")
 
 
 var request = require ("request")
-var env = require("./env")
+if(app.settings.env == "development"){
+  var env = require("./env.js");
+}else{
+  var env = process.env;
+}
 
 
 //making user global
