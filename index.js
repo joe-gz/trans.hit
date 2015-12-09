@@ -41,7 +41,6 @@ var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
 
-
 var request = require ("request")
 var env = require("./env")
 
