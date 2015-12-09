@@ -31,7 +31,6 @@ $('.selectpicker').on('change', function(){
     }
   })
 
-});//document.ready end
 
 
 
@@ -44,4 +43,4 @@ $('.selectpicker').on('change', function(){
   //   alert(selected);
   // });
 
-});
+});//document.ready end
