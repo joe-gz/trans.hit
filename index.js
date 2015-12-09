@@ -26,7 +26,9 @@ app.set('view engine', 'hbs');
 app.set("views","./public/html");
 
 
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS',
+    resave: true,
+    saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -43,7 +45,7 @@ app.get('/', function(req, res){
 })
 
 var request = require ("request")
-// var env = require("./env")
+var env = require("./env")
 
 app.get ("/incidents", function(req, res) {
   console.log("Call API?");
