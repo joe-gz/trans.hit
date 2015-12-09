@@ -9,7 +9,7 @@ var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
 var passport     = require('passport');
 var session      = require('express-session');
-
+var hbs          = require("hbs");
 
 var path = require('path')
 
@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 // connects assets like stylesheets
 app.use(express.static(path.join(__dirname, "public")));
+app.set('view engine', 'hbs');
+app.set("views","./public/html");
 
 
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
@@ -52,9 +54,21 @@ app.get ("/incidents", function(req, res) {
 
 
 app.get('/', function(req, res){
-  // console.log("working?");
-  res.sendFile(__dirname + '/public/html/index.html')
+  res.render( "index.hbs" )
 })
+
+var request = require ("request")
+var env = require("./env")
+
+app.get ("/incidents", function(req, res) {
+  console.log("Call API?");
+  var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=" + env.api_key
+  request(url, function(error, response, body) {
+    console.log(url)
+    var incidents = JSON.parse(body)
+    res.json(incidents);
+  });
+});
 
 // INDEX route
 
@@ -68,12 +82,13 @@ require('./config/passport')(passport);
 app.use(function (req, res, next) {
   global.currentUser = req.user;
   res.locals.currentUser = req.user;
+  console.log("CHECK"+currentUser);
+  var user = console.log("Does this work"+currentUser);
   next();
 });
 
 var routes = require('./config/routes');
 app.use(routes);
-
 
  // app server located on port 4000
  app.listen(4000, function() {
