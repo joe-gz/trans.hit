@@ -55,8 +55,8 @@ $('.login-button').on("click", function(currentUser){
     $('.logout').hide();
   }
 
-  // $('.selectpicker').selectpicker({
-  //      style: 'btn-info',
-  //      size: 4
-  //  });
+  // $('.selectpicker').selectpicker()
+  // $('select[name=selValue]').val(1);
+  // $('.selectpicker').selectpicker('refresh')
+  //
 });
