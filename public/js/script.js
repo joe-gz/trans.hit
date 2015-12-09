@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$('.dropdown-menu').on('click', function(){
+$('.selectpicker').on('click', function(){
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
@@ -54,4 +54,9 @@ $('.login-button').on("click", function(currentUser){
     $('.signup').show();
     $('.logout').hide();
   }
+
+  // $('.selectpicker').selectpicker({
+  //      style: 'btn-info',
+  //      size: 4
+  //  });
 });

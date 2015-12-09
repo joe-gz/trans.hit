@@ -36,23 +36,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stations <span class="caret"></span></a>
-            <select class="dropdown-menu">
-              <option><a id="redline" value="Red">Red</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="blueline" value="Blue">>Blue</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="orangeline">Orange</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="greenline">Green</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="yellowline">Yellow</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="silverline">Silver</a></option>
+          <!-- <li class="dropdown"> -->
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stations <span class="caret"></span></a> -->
+      <div>
+            <select class="form-control">
+
+              <option value="Red">Red</option>
+              <option value="Blue"> Blue</option>
+              <option value="Orange">Orange</option>
+              <option value="Green">Green</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Silver">Silver</option>
 
             </select>
-          </li>
+          </div>
+          <!-- </li> -->
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{user}}
@@ -67,6 +65,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <div class = "container">
   <div class="signup-form">
     <h2>Signup</h2>
     <form method="post" action="/signup">
@@ -99,7 +98,7 @@
       <input class="btn btn-default login-button" type="submit">
     </form>
   </div><!--end login form-->
-  <div class="container">
+
     <div class="row ">
       <div class = "col-md-12 metromaping">
         <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
