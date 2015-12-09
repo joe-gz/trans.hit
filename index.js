@@ -42,7 +42,11 @@ var usersController = require("./controllers/usersController")
 
 
 var request = require ("request")
-var env = require("./env")
+if(app.settings.env == "development"){
+  var env = require("./env.js");
+}else{
+  var env = process.env;
+}
 
 
 //making user global
@@ -68,13 +72,6 @@ app.get('/logout', function (req, res){
  });
 });
 
-app.use("/", stationsController);
-app.use("/", commentsController);
-
-var routes = require('./config/routes');
-app.use(routes);
-
-
 app.get ("/incidents", function(req, res) {
   console.log("Call API?");
   var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=" + env.api_key
@@ -84,7 +81,14 @@ app.get ("/incidents", function(req, res) {
     res.json(incidents);
   });
 });
+
+app.use("/", stationsController);
+app.use("/", commentsController);
+
+var routes = require('./config/routes');
+app.use(routes);
+
  // app server located on port 4000
- app.listen(4000, function() {
+ app.listen(process.env.PORT || 4000, function() {
    console.log("app listening on port 4000")
  })
