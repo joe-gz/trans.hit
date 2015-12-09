@@ -48,7 +48,7 @@ Incident.fetch = function(){
 
 Station.all = []
 Station.fetch = function(){
-  var color = $(".dropdown-menu option:selected").val();
+  var color = $(".selectpicker option:selected").val();
   console.log(color)
   var url = "http://localhost:4000/lines/" + color;
   var request = $.getJSON(url).then(function(response){
