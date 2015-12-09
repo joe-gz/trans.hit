@@ -5,7 +5,7 @@ $('.selectpicker').on('change', function(){
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
-      view.render();
+      // view.render();
     })
   })
 })
@@ -31,10 +31,6 @@ $('.selectpicker').on('change', function(){
     }
   })
 
-});//document.ready end
-
-
-
   //dropdown metroline functionality
     $('.selectpicker').selectpicker('refresh')
   // $('select[name=selValue]').val(1);
@@ -44,4 +40,4 @@ $('.selectpicker').on('change', function(){
   //   alert(selected);
   // });
 
-});
+});//document.ready end
