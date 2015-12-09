@@ -40,12 +40,41 @@ var stationsController = require("./controllers/stationsController")
 var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
+
+
+var request = require ("request")
+var env = require("./env")
+
+
+//making user global
+require('./config/passport')(passport);
+
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  res.locals.currentUser = req.user;
+  console.log("index.js1"+currentUser);
+  var user = console.log("Index.hbs"+currentUser);
+  next();
+});
+
+// INDEX route
+
 app.get('/', function(req, res){
   res.render( "index.hbs" )
 })
 
-var request = require ("request")
-var env = require("./env")
+app.get('/logout', function (req, res){
+ req.session.destroy(function (err) {
+   res.redirect('/'); //Inside a callback… bulletproof!
+ });
+});
+
+app.use("/", stationsController);
+app.use("/", commentsController);
+
+var routes = require('./config/routes');
+app.use(routes);
+
 
 app.get ("/incidents", function(req, res) {
   console.log("Call API?");
@@ -56,27 +85,6 @@ app.get ("/incidents", function(req, res) {
     res.json(incidents);
   });
 });
-
-// INDEX route
-
-app.use("/", stationsController);
-app.use("/", commentsController);
-
-
-
-//making user global
-require('./config/passport')(passport);
-app.use(function (req, res, next) {
-  global.currentUser = req.user;
-  res.locals.currentUser = req.user;
-  console.log("CHECK"+currentUser);
-  var user = console.log("Does this work"+currentUser);
-  next();
-});
-
-var routes = require('./config/routes');
-app.use(routes);
-
  // app server located on port 4000
  app.listen(4000, function() {
    console.log("app listening on port 4000")

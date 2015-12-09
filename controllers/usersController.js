@@ -37,14 +37,15 @@ function postLogin(request, response) {
     failureRedirect : '/',
     failureFlash : true
   });
-  console.log(global.currentUser);
+  console.log("This comes from userController"+global.currentUser);
   return loginProperty(request, response);
 }
 
 // GET /logout
 function getLogout(request, response) {
-  request.logout();
-  response.redirect('/');
+  req.session.destroy(function (err) {
+    res.redirect('/'); //Inside a callback… bulletproof!
+  });
   console.log("Logged out");
 }
 
