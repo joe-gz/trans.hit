@@ -10,27 +10,24 @@ StationView.prototype = {
     var self = this;
     var station = self.station
     var metro = self.metroLine
-    // self.$el.html(self.stationName());
-
-    $('#blueline').on('click',function(){
-      if (station.metroLine = "Blue" ){
-            self.$el.html(self.metroLoop());
-
-      }  else {console.log("no blue")}
-
-
-
-      // console.log("clicked")
-    });
+   self.$el.html(self.StationTemplate());
   },
-
-    stationName: function(){
-      var station = this.station
-      var metro = station.metroLine
-      var html = $("<div class='stationdiv'>");
-      html.append("<h3><a>" + station.name + "</a></h3>");
+    StationTemplate: function(){
+      var station = this.station;
+      var html = $("<div class='station'>");
+      html.append("<h3 class= 'stationdiv'><a>" + station.name + "</a></h3>");
+      html.append("<button class='showComments'>Show Comments</button>");
+      html.append("<div class='comments'></div>");
       return(html);
-    },
+    }
+  }
+    // stationName: function(){
+    //   var station = this.station
+    //   var metro = station.metroLine
+    //   var html = $("<div class='stationdiv'>");
+    //   html.append("<h3><a>" + station.name + "</a></h3>");
+    //   return(html);
+    // },
 
     // metroLoop: function(color){
     //   var station = this.station
@@ -42,10 +39,7 @@ StationView.prototype = {
     //     }
 
         // html.append ("<h3><a>" + stationList + "</a></h3>");
-      }
-    }
-
-}//end of stationview
+//end of stationview
 // StationView.prototype = {
 //   render: function(){
 //     var self = this;

@@ -17,18 +17,21 @@ router.get("/stations/:id", function(req, res){
   });
 });
 
-// var color = $(":selected").val();
-// $.getJSON(":4000/lines/" + color)
-//
-// router.get("/lines/:wombat", fuction(){
-//   StationModel.find({color: req.params.wombat})
-// })
 
 router.get("/stations/:id/comments", function(req, res){
   StationModel.findById(req.params.id).populate("comments").then(function(station){
     res.json(station.comments);
   });
 });
+
+
+router.get("/lines/:color", function(req, res){
+  StationModel.find({metroLine: req.params.color}).then(function(station){
+    console.log("lines/color")
+    res.json(station);
+  });
+});
+
 
 module.exports = router;
 // module.exports = router;
