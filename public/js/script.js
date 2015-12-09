@@ -1,10 +1,13 @@
 $(document).ready(function(){
+$('.dropdown-menu').on('click', function(){
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
       view.render();
     })
   })
+})
+
 
   $('.signup').on('click', function(){
     var cssSelect = $('.signup-form').css('display');

@@ -17,11 +17,21 @@ router.get("/stations/:id", function(req, res){
   });
 });
 
+
 router.get("/stations/:id/comments", function(req, res){
   StationModel.findById(req.params.id).populate("comments").then(function(station){
     res.json(station.comments);
   });
 });
+
+
+router.get("/lines/:color", function(req, res){
+  StationModel.find({metroLine: req.params.color}).then(function(station){
+    console.log("lines/color")
+    res.json(station);
+  });
+});
+
 
 module.exports = router;
 // module.exports = router;

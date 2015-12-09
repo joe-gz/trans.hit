@@ -41,7 +41,6 @@ var commentsController = require("./controllers/commentsController")
 var usersController = require("./controllers/usersController")
 
 
-
 var request = require ("request")
 if(app.settings.env == "development"){
   var env = require("./env.js");

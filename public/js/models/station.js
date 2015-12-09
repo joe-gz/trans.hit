@@ -6,10 +6,26 @@ var Station = function(info){
   this.id = info._id;
 };
 
+//to get all stations
+// Station.all = []
+// Station.fetch = function(){
+//   var url = "http://localhost:4000/stations";
+//   var request = $.getJSON(url).then(function(response){
+//     for(var i = 0; i < response.length; i++){
+//       Station.all.push(new Station(response[i]));
+//     }
+//   }).fail(function(response){
+//     console.log("js failed to load");
+//   });
+//   return request;
+// };
 
 Station.all = []
+
 Station.fetch = function(){
-  var url = "http://localhost:4000/stations";
+  var color = $(".dropdown-menu option:selected").val();
+  console.log(color)
+  var url = "http://localhost:4000/lines/" + color;
   var request = $.getJSON(url).then(function(response){
     for(var i = 0; i < response.length; i++){
       Station.all.push(new Station(response[i]));
@@ -19,7 +35,7 @@ Station.fetch = function(){
   });
   return request;
 };
-
+//to get the comments
 Station.prototype = {
   fetchComments: function(){
     var station = this;
