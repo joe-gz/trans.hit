@@ -78,6 +78,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
  // app server located on port 4000
- app.listen(4000, function() {
+ app.listen(process.env.PORT || 4000, function() {
    console.log("app listening on port 4000")
  })
