@@ -32,15 +32,14 @@ StationView.prototype = {
       return(html);
     },
 
-    metroLoop: function(color){
-      var station = this.station
-      var html = $("<div class='stationdiv'>");
-      var stationList = []
-      for(var i = 0; i < station.length; i++){
-        if (station.metroLine[i] = "Blue"){
-          console.log("loop")
-           html.append ("<h3><a>" + station.name + "</a></h3>")
-        }
+    // metroLoop: function(color){
+    //   var station = this.station
+    //   var html = $("<div class='stationdiv'>");
+    //   var stationList = []
+    //   for(var i = 0; i < station.length; i++){
+    //     if (station.metroLine[i] == "Blue"){
+    //        html.append ("<h3><a>" + station.name + "</a></h3>")
+    //     }
 
         // html.append ("<h3><a>" + stationList + "</a></h3>");
       }
