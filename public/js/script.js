@@ -57,7 +57,7 @@ $('.login-button').on("click", function(currentUser){
 
 
   //dropdown metroline functionality
-    $('.selectpicker').selectpicker()
+    $('.selectpicker').selectpicker('refresh')
   // $('select[name=selValue]').val(1);
   // $('.selectpicker').selectpicker('refresh')
   // $('.selectpicker').on('change', function(){
