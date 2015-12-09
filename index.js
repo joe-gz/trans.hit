@@ -13,7 +13,7 @@ var hbs          = require("hbs");
 
 var path = require('path')
 
-mongoose.connect('mongodb://localhost/transhit')
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/transhit')
 
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
