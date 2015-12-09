@@ -29,6 +29,7 @@ StationView.prototype = {
     html.append("<div class='comments'></div>");
     return(html);
   },
+
   toggleButton: function(commentsDiv){
     if(commentsDiv.is(":visible")){
       commentsDiv.siblings("button.showComments").text("Hide Comments");

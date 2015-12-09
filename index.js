@@ -74,7 +74,7 @@ app.get('/logout', function (req, res){
 
 app.get ("/incidents", function(req, res) {
   console.log("Call API?");
-  var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=" + env.api_key
+  var url = "https://api.wmata.com/Incidents.svc/json/Incidents?api_key=" + env.api_key
   request(url, function(error, response, body) {
     console.log(url)
     var incidents = JSON.parse(body)

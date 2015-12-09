@@ -1,5 +1,7 @@
 $(document).ready(function(){
-$('.dropdown-menu').on('click', function(){
+
+$('.selectpicker').on('change', function(){
+    Incident.fetch();
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
@@ -31,27 +33,15 @@ $('.dropdown-menu').on('click', function(){
 
 });//document.ready end
 
-$('.signup-button').on("click", function(currentUser){
-  if( currentUser){
-    $('.login').hide();
-    $('.signup').hide();
-    $('.logout').show();
-  } else {
-    $('.login').show();
-    $('.signup').show();
-    $('.logout').hide();
-  }
-  console.log("clicked?");
-});
 
-$('.login-button').on("click", function(currentUser){
-  if( currentUser){
-    $('.login').hide();
-    $('.signup').hide();
-    $('.logout').show();
-  } else {
-    $('.login').show();
-    $('.signup').show();
-    $('.logout').hide();
-  }
+
+  //dropdown metroline functionality
+    $('.selectpicker').selectpicker('refresh')
+  // $('select[name=selValue]').val(1);
+  // $('.selectpicker').selectpicker('refresh')
+  // $('.selectpicker').on('change', function(){
+  //   var selected = $(this).find("option:selected").val();
+  //   alert(selected);
+  // });
+
 });

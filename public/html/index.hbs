@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Custom CSS-->
   <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.min.css">
+
   <script type="text/javascript" src= "https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src = "js/script.js"></script>
   <script src="js/views/stationView.js"></script>
@@ -36,23 +39,19 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stations <span class="caret"></span></a>
-            <select class="dropdown-menu">
-              <option><a id="redline" value="Red">Red</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="blueline" value="Blue">>Blue</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="orangeline">Orange</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="greenline">Green</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="yellowline">Yellow</a></option>
-              <option role="separator" class="divider"></option>
-              <option><a id="silverline">Silver</a></option>
 
+            <select class="selectpicker" data-style="btn-info">
+               <optgroup label="Metro Lines">
+              <option selected="selected" data-hidden="true">Choose Station</option>
+              <option value="Red">Red</option>
+              <option value="Blue"> Blue</option>
+              <option value="Orange">Orange</option>
+              <option value="Green">Green</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Silver">Silver</option>
+            </optgroup>
             </select>
-          </li>
+          </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{user}}
@@ -62,11 +61,11 @@
           <li class="login"><a href="#">Login</a></li>
           <li class="signup"><a href="#">Signup</a></li>
           {{/if}}
-          <!-- <li><a href="/signup">Signup</a></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <div class = "container">
   <div class="signup-form">
     <h2>Signup</h2>
     <form method="post" action="/signup">
@@ -99,7 +98,7 @@
       <input class="btn btn-default login-button" type="submit">
     </form>
   </div><!--end login form-->
-  <div class="container">
+
     <div class="row ">
       <div class = "col-md-12 metromaping">
         <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
@@ -107,8 +106,14 @@
       </div>
     </div>
     <div class="row">
+<<<<<<< HEAD
       <!--logo below seems redundant-->
       <!-- <h1>Trans.hit</h1> -->
+=======
+
+      <hr>
+
+>>>>>>> master
       <div class="stations">
         <div class="stationInfo">
           {{{body}}}
@@ -127,6 +132,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.min.js"></script>
   <!-- for zooming -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomooz/1.1.6/jquery.zoomooz.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomooz/1.1.6/jquery.zoomooz.min.js"></script> -->
 </body>
