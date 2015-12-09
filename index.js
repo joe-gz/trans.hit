@@ -40,10 +40,21 @@ var usersController = require("./controllers/usersController")
 
 
 app.get('/', function(req, res){
-  // console.log("working?");
-  // res.sendFile(__dirname + '/public/html/index.hbs')
   res.render( "index.hbs" )
 })
+
+var request = require ("request")
+var env = require("./env")
+
+app.get ("/incidents", function(req, res) {
+  console.log("Call API?");
+  var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=" + env.api_key
+  request(url, function(error, response, body) {
+    console.log(url)
+    var incidents = JSON.parse(body)
+    res.json(incidents);
+  });
+});
 
 // INDEX route
 
@@ -57,14 +68,15 @@ require('./config/passport')(passport);
 app.use(function (req, res, next) {
   global.currentUser = req.user;
   res.locals.currentUser = req.user;
+  console.log("CHECK"+currentUser);
+  var user = console.log("Does this work"+currentUser);
   next();
 });
 
 var routes = require('./config/routes');
 app.use(routes);
 
-
  // app server located on port 4000
- app.listen(4000, function(){
+ app.listen(4000, function() {
    console.log("app listening on port 4000")
  })

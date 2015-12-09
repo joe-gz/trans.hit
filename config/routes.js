@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var passport = require('passport');
+var staticsController = require('../controllers/statics');
 var usersController = require('../controllers/usersController');
 
 function authenticatedUser(req, res, next) {
@@ -13,6 +14,8 @@ function authenticatedUser(req, res, next) {
 
 // router.route('/')
 //   .get(usersController);
+router.route('/')
+.get(staticsController.home);
 
 router.route('/signup')
   .get(usersController.getSignup)

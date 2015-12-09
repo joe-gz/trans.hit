@@ -27,14 +27,15 @@ module.exports = function(passport) {
       // If no user is found
       if (!user) {
         console.log("no user found")
-        //  return callback(null, false, req.flash('loginMessage', 'No user found.'));
+         return callback(null, false);
       }
       // Wrong password
       if (!user.validPassword(password)) {
         console.log("wrong password")
+        return callback(null, false);
         //  return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
       }
-      console.log("This is being returned from passport:" + user);
+      console.log("This is being returned from passport login:" + user);
       return callback(null, user);
     });
   }));
@@ -50,6 +51,7 @@ module.exports = function(passport) {
       // If there already is a user with this email
       if (user) {
         console.log("email already in use")
+        return callback(null, false);
         // return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
       } else {
         // There is no email registered with this emai
