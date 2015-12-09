@@ -6,6 +6,10 @@ var Station = function(info){
   this.id = info._id;
 };
 
+var Incident = function(incidentInfo){
+  this.description = incidentInfo.Description;
+};
+
 //to get all stations
 // Station.all = []
 // Station.fetch = function(){
@@ -19,9 +23,30 @@ var Station = function(info){
 //   });
 //   return request;
 // };
+Incident.all = []
+Incident.fetch = function(){
+  var color = $(".dropdown-menu option:selected").val();
+  console.log(color)
+  var url = "http://localhost:4000/incidents"
+  console.log(url);
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: "json"
+  }).done ( function(response){
+    console.log(response.Incidents.length);
+    for(var i = 0; i < response.Incidents.length; i++){
+      Incident.all.push(new Incident(response.Incidents[i]));
+      $('.stations').prepend("<h2>"+response.Incidents[i].Description+"</h2")
+    }
+  }).fail ( function (){
+    console.log("Failure");
+  }).always( function(){
+    console.log("Something's happening");
+  })
+};
 
 Station.all = []
-
 Station.fetch = function(){
   var color = $(".dropdown-menu option:selected").val();
   console.log(color)

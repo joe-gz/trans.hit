@@ -1,5 +1,6 @@
 $(document).ready(function(){
 $('.dropdown-menu').on('click', function(){
+  Incident.fetch();
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
@@ -30,28 +31,3 @@ $('.dropdown-menu').on('click', function(){
   })
 
 });//document.ready end
-
-$('.signup-button').on("click", function(currentUser){
-  if( currentUser){
-    $('.login').hide();
-    $('.signup').hide();
-    $('.logout').show();
-  } else {
-    $('.login').show();
-    $('.signup').show();
-    $('.logout').hide();
-  }
-  console.log("clicked?");
-});
-
-$('.login-button').on("click", function(currentUser){
-  if( currentUser){
-    $('.login').hide();
-    $('.signup').hide();
-    $('.logout').show();
-  } else {
-    $('.login').show();
-    $('.signup').show();
-    $('.logout').hide();
-  }
-});
