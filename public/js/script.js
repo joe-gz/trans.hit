@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$('.selectpicker').on('click', function(){
+$('.selectpicker').on('change', function(){
   Station.fetch().then(function(stations){
     Station.all.forEach(function(station){
       var view = new StationView(station)
@@ -55,8 +55,14 @@ $('.login-button').on("click", function(currentUser){
     $('.logout').hide();
   }
 
-  // $('.selectpicker').selectpicker()
+
+  //dropdown metroline functionality
+    $('.selectpicker').selectpicker()
   // $('select[name=selValue]').val(1);
   // $('.selectpicker').selectpicker('refresh')
-  //
+  // $('.selectpicker').on('change', function(){
+  //   var selected = $(this).find("option:selected").val();
+  //   alert(selected);
+  // });
+
 });

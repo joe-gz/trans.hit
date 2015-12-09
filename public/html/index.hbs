@@ -41,18 +41,19 @@
         <ul class="nav navbar-nav">
           <!-- <li class="dropdown"> -->
             <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stations <span class="caret"></span></a> -->
-      <div >
-        <label>Metro Lines</label>
-            <select class="selectpicker" data-style="btn-primary">
-               <!-- <optgroup label="Metro Lines"> -->
-              <!-- <option data-hidden="true">Metro</option> -->
+      <div class="choosestation">
+
+            <select class="selectpicker" data-style="btn-info">
+                <!-- <label>Metro Lines</label> -->
+               <optgroup label="Metro Lines">
+              <option selected="selected" data-hidden="true">Choose Station</option>
               <option value="Red">Red</option>
               <option value="Blue"> Blue</option>
               <option value="Orange">Orange</option>
               <option value="Green">Green</option>
               <option value="Yellow">Yellow</option>
               <option value="Silver">Silver</option>
-            <!-- </optgroup> -->
+            </optgroup>
             </select>
           </div>
           <!-- </li> -->
@@ -111,7 +112,7 @@
       </div>
     </div>
     <div class="row">
-      <h1>Trans.hit</h1>
+      <hr>
       <div class="stations">
         <div class="stationInfo">
           {{{body}}}
