@@ -42,10 +42,6 @@ hr{
   display: inline-block;
 }
 
-.choosestation{
-  margin-top: 10px;
-}
-
 
 .red:hover{
   background-color: #FF2042 !important;
@@ -77,6 +73,7 @@ hr{
 h4 {
   font-family: arial;
   font-size: 25px;
-  padding: 25px;
+  padding: 10px;
+  text-align: center;
 
 }
