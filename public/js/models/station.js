@@ -37,7 +37,7 @@ Incident.fetch = function(){
     console.log(response.Incidents.length);
     for(var i = 0; i < response.Incidents.length; i++){
       Incident.all.push(new Incident(response.Incidents[i]));
-      $('.stations').prepend("<h3>"+response.Incidents[i].Description+"</h3")
+      $('.stations').prepend("<p>"+response.Incidents[i].Description+"</p")
     }
   }).fail ( function (){
     console.log("Failure");
