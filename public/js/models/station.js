@@ -37,7 +37,7 @@ Incident.fetch = function(){
     console.log(response.Incidents.length);
     for(var i = 0; i < response.Incidents.length; i++){
       Incident.all.push(new Incident(response.Incidents[i]));
-      $('.stations').prepend("<h2>"+response.Incidents[i].Description+"</h2")
+      $('.wmata').prepend("<h2>"+response.Incidents[i].Description+"</h2")
     }
   }).fail ( function (){
     console.log("Failure");

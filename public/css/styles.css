@@ -17,12 +17,18 @@ hr{
   border-color:#cccccc;
 }
 
-.stations h2{
+.centerdiv{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.wmata h2{
   color: red;
   font-style: italic;
   text-align: center;
-  font-size: 1em; 
+  font-size: 1em;
 }
+
 .signup-form, .login-form {
   display:none;
 }
