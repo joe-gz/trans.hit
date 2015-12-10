@@ -1,14 +1,16 @@
 $(document).ready(function(){
 
-$('.selectpicker').on('change', function(){
+  $('.selectpicker').on('change', function(){
+    $('.stations').empty();
+    console.log("remove?");
     Incident.fetch();
-  Station.fetch().then(function(stations){
-    Station.all.forEach(function(station){
-      var view = new StationView(station)
-      // view.render();
+    Station.fetch().then(function(stations){
+      Station.all.forEach(function(station){
+        var view = new StationView(station)
+        // view.render();
+      })
     })
   })
-})
 
 
   $('.signup').on('click', function(){
@@ -32,7 +34,7 @@ $('.selectpicker').on('change', function(){
   })
 
   //dropdown metroline functionality
-    $('.selectpicker').selectpicker('refresh')
+  $('.selectpicker').selectpicker('refresh')
   // $('select[name=selValue]').val(1);
   // $('.selectpicker').selectpicker('refresh')
   // $('.selectpicker').on('change', function(){

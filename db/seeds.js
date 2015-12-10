@@ -18,6 +18,17 @@ var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
 })
+
+var rockville = new StationModel({
+  name:"Rockville",
+  metroLine:"Red",
+})
+
+var faragutNorth = new StationModel({
+  name:"Faragut North",
+  metroLine:"Red",
+})
+
 var fortTotten = new StationModel({
   name:"Fort Totten",
   metroLine:"Green",
@@ -60,7 +71,7 @@ var comment3 = new CommentModel({
   text:"Metro Center is fine"
 })
 
-var stations = [dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];
+var stations = [faragutNorth,rockville,dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];
 console.log(stations);
 // var comments = [comment1,comment2,comment3];
 // console.log(comments);

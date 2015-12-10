@@ -36,30 +36,30 @@
         <a class="navbar-brand" href="#">trans.hit</a>
       </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          {{user}}
-          {{#if currentUser}}
-          <li class="logout"><a href="/logout">Logout</a></li>
-          {{else}}
-          <li class="login"><a href="#">Login</a></li>
-          <li class="signup"><a href="#">Signup</a></li>
-          {{/if}}
-        </ul>
-              <div class="choosestation">
-                    <select class="selectpicker" data-style="btn-info">
-                      <option data-hidden="true">Choose Station</option>
-                      <option value="Red">Red</option>
-                      <option value="Blue"> Blue</option>
-                      <option value="Orange">Orange</option>
-                      <option value="Green">Green</option>
-                      <option value="Yellow">Yellow</option>
-                      <option value="Silver">Silver</option>
-                    </select>
-                </div>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <div class = "container">
+      <ul class="nav navbar-nav navbar-right">
+        {{user}}
+        {{#if currentUser}}
+        <li class="logout"><a href="/logout">Logout</a></li>
+        {{else}}
+        <li class="login"><a href="#">Login</a></li>
+        <li class="signup"><a href="#">Signup</a></li>
+        {{/if}}
+      </ul>
+      <div class="choosestation">
+        <select class="selectpicker" data-style="btn-info">
+          <option data-hidden="true">Choose Station</option>
+          <option value="Red">Red</option>
+          <option value="Blue"> Blue</option>
+          <option value="Orange">Orange</option>
+          <option value="Green">Green</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Silver">Silver</option>
+        </select>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class = "container">
   <div class="signup-form">
     <h2>Signup</h2>
     <form method="post" action="/signup">
@@ -93,35 +93,32 @@
     </form>
   </div><!--end login form-->
 
-    <div class="row ">
-      <div class = "col-md-12 metromaping">
-        <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
+  <div class="row ">
+    <div class = "col-md-12 metromaping">
+      <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
 
-      </div>
-    </div>
-    <div class="row">
-
-      <hr>
-
-      <div class="stations">
-        <div class="stationInfo">
-          {{{body}}}
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="commentdiv">
-
-      </div>
     </div>
   </div>
+  <div class="row">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.min.js"></script>
-  <!-- for zooming -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomooz/1.1.6/jquery.zoomooz.min.js"></script> -->
+    <hr>
+
+    <div class="stations">
+        {{{body}}}
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="commentdiv">
+
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.min.js"></script>
+<!-- for zooming -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomooz/1.1.6/jquery.zoomooz.min.js"></script> -->
 </body>

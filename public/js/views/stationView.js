@@ -56,7 +56,7 @@ StationView.prototype = {
       var commentView = new CommentView(comment);
       commentsDiv.prepend(commentView.render());
     });
-    commentsDiv.append("<form action=http://localhost:4000/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
+    commentsDiv.append("<form action/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
     commentsDiv.append("<button class='submitComment'>Submit Comment</button></form>");
     self.$el.find(".submitComment").on("click", function() {
       // console.log("working?");
@@ -74,6 +74,9 @@ StationView.prototype = {
     console.log(commentsDiv);
     self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
     // commentsDiv.prepend(commentView.render());
+  },
+  stationClear: function() {
+    $('.stations').empty();
   }
 }
 

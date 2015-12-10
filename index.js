@@ -27,8 +27,8 @@ app.set("views","./public/html");
 
 
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS',
-    resave: true,
-    saveUninitialized: true }));
+resave: true,
+saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -67,9 +67,9 @@ app.get('/', function(req, res){
 })
 
 app.get('/logout', function (req, res){
- req.session.destroy(function (err) {
-   res.redirect('/'); //Inside a callback… bulletproof!
- });
+  req.session.destroy(function (err) {
+    res.redirect('/'); //Inside a callback… bulletproof!
+  });
 });
 
 app.get ("/incidents", function(req, res) {
@@ -88,7 +88,7 @@ app.use("/", commentsController);
 var routes = require('./config/routes');
 app.use(routes);
 
- // app server located on port 4000
- app.listen(process.env.PORT || 4000, function() {
-   console.log("app listening on port 4000")
- })
+// app server located on port 4000
+app.listen(process.env.PORT || 4000, function() {
+  console.log("app listening on port 4000")
+})
