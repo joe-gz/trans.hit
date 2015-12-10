@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   $('.selectpicker').on('change', function(){
     $('.stations').empty();
+      $('.wmata').empty();
     console.log("remove?");
     Incident.fetch();
     Station.fetch().then(function(stations){

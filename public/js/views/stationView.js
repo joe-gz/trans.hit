@@ -25,7 +25,7 @@ StationView.prototype = {
     var station = this.station;
     var html = $("<div class='stationInfo centerdiv'>");
     html.append("<h3 class= 'stationdiv'><a>" + station.name + "</a></h3>");
-    html.append("<button class='showComments'>Show Comments</button>");
+    html.append("<button class='showComments btn btn-default'>Show Comments</button>");
     html.append("<div class='comments'></div>");
     return(html);
   },
@@ -56,8 +56,8 @@ StationView.prototype = {
       var commentView = new CommentView(comment);
       commentsDiv.prepend(commentView.render());
     });
-    commentsDiv.append("<form action/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
-    commentsDiv.append("<button class='submitComment'>Submit Comment</button></form>");
+    commentsDiv.append("<form action/stations/"+station.id+"/comments method=post><input class='form-control'  name='"+self.station.id+"' placeholder='enter new comment'>");
+    commentsDiv.append("<button class='submitComment btn btn-default'>Submit Comment</button></form>");
     self.$el.find(".submitComment").on("click", function() {
       // console.log("working?");
       self.submitComment();

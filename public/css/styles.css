@@ -17,6 +17,11 @@ hr{
   border-color:#cccccc;
 }
 
+p{
+  font-size: 20px;
+  font-family: 'Architects Daughter', serif; 
+}
+
 .centerdiv{
   text-align: center;
   margin: 0 auto;

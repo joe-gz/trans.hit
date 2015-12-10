@@ -7,7 +7,7 @@ CommentView.prototype = {
   render: function(){
     var self = this;
     var commentText = $("<div class = 'comment'>"+"<p>" + this.comments.text + "</p>"+
-    "<button class='deleteComment'>Delete Comment</button>"+"</div>");
+    "<button class='deleteComment btn btn-default'>Delete Comment</button>"+"</div>");
     var deleteButton = self.$el.find(".deleteComment");
     console.log("commentView");
     console.log("comment text"+commentText);
