@@ -24,6 +24,7 @@ StationView.prototype = {
   StationTemplate: function(){
     var station = this.station;
     var html = $("<div class='station'>");
+    html.append("<hr>")
     html.append("<h3 class= 'stationdiv'><a>" + station.name + "</a></h3>");
     html.append("<button class='showComments'>Show Comments</button>");
     html.append("<div class='comments'></div>");

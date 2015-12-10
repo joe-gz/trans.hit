@@ -16,6 +16,12 @@ background: #FEFEFE;
 hr{
   border-color:#cccccc;
 }
+
+.stations h2{
+  color: red;
+  font-style: italic;
+  text-align: center;
+}
 .signup-form, .login-form {
   display:none;
 }
