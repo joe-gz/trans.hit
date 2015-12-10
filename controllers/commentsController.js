@@ -26,6 +26,8 @@ router.put("/:id", function(req, res){
   });
 });
 
+
+
 router.post("/stations/:id/comments", function(req, res){
   // CommentModel.create(req.body.comments).then(function(err,comment){
   //   res.json(comment);

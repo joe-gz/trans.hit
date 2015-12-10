@@ -10,12 +10,12 @@
 
 body {
 padding-top: 100px;
+background: #FEFEFE;
 }
 
-/*.hidden{
-  display:none;
-}*/
-
+hr{
+  border-color:#cccccc;
+}
 .signup-form, .login-form {
   display:none;
 }
@@ -31,4 +31,31 @@ padding-top: 100px;
 
 .choosestation{
   margin-top: 10px;
+}
+
+.red:hover{
+  background-color: #FF2042 !important;
+}
+.blue:hover{
+  background-color: #00B9FF !important;
+}
+.orange:hover{
+  background-color: #F48F00 !important;
+}
+.silver:hover{
+  background-color: #B4C6CA !important;
+}
+.yellow:hover{
+  background-color: #FFF000 !important;
+}
+.green:hover{
+  background-color: #18D653 !important;
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+  border-radius: 50px;
+  /*background-color: green;*/
 }
