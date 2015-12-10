@@ -50,7 +50,7 @@ var easternMarket = new StationModel({
   metroLine:"Blue",
 })
 
-var stations = [faragutNorth,rockville,dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];
+var stations = [faragutNorth,rockville,dupont,fortTotten,vienna,greensboro,easternMarket];
 console.log(stations);
 // var comments = [comment1,comment2,comment3];
 // console.log(comments);
