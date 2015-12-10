@@ -21,7 +21,22 @@ hr{
 p{
   font-size: 20px;
   font-family: 'Architects Daughter', serif;
-  padding: 10px; 
+  padding: 10px;
+
+}
+.comments{
+  margin: 10px;
+}
+
+.commentbox{
+    border: 2px solid #262626;
+    width: 400px;
+    min-height: 100px;
+    text-align: center;
+    border-radius: 100px / 50px;
+     box-shadow: 0 0 30px black;
+     margin: 15px;
+     margin: 0 auto;
 }
 
 .centerdiv{
