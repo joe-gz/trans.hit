@@ -73,6 +73,16 @@ hr{
   /*background-color: green;*/
 }
 
+/*.stations{
+  position:relative;
+}
+
+.stationInfo {
+  margin: 0 auto;
+  display:block;
+  position:absolute;
+}*/
+
  /*.red{
   width: 10px;
   height: 10px;
