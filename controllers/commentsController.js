@@ -29,10 +29,6 @@ router.put("/:id", function(req, res){
 
 
 router.post("/stations/:id/comments", function(req, res){
-  // CommentModel.create(req.body.comments).then(function(err,comment){
-  //   res.json(comment);
-  // });
-
   StationModel.findById(req.params.id, function(err, station){
     var comment = new CommentModel(req.body.comments)
     station.comments.push(comment);
@@ -40,6 +36,15 @@ router.post("/stations/:id/comments", function(req, res){
       res.json(comment)
     })
   })
+});
+
+router.delete("/:id", function(req, res){
+  CommentModel.findByIdAndRemove(req.params._id).then(function(err, doc){
+   console.log("err/doc"+err,doc)
+    console.log(req.params.id);
+    console.log("running?");
+    res.json({success: true});
+  });
 });
 
 module.exports = router;

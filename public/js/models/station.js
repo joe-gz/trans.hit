@@ -27,7 +27,7 @@ Incident.all = []
 Incident.fetch = function(){
   var color = $(".dropdown-menu option:selected").val();
   console.log(color)
-  var url = "http://localhost:4000/incidents"
+  var url = "/incidents"
   console.log(url);
   $.ajax({
     url: url,
@@ -50,7 +50,7 @@ Station.all = []
 Station.fetch = function(){
   var color = $(".selectpicker option:selected").val();
   console.log(color)
-  var url = "http://localhost:4000/lines/" + color;
+  var url = "/lines/" + color;
   var request = $.getJSON(url).then(function(response){
     for(var i = 0; i < response.length; i++){
       Station.all.push(new Station(response[i]));
@@ -64,8 +64,7 @@ Station.fetch = function(){
 Station.prototype = {
   fetchComments: function(){
     var station = this;
-    var url = "http://localhost:4000/stations/" + station.id + "/comments";
-    // var url = "http://localhost:4000/stations.json";
+    var url = "/stations/" + station.id + "/comments";
     station.comments = [];
     var request = $.getJSON(url).then(function(response){
       for(var i = 0; i < response.length; i++){
@@ -95,21 +94,6 @@ Station.prototype = {
     }).then(
       console.log("Done")
     );
-    return request;
-  }
-  ,
-  fetchStationInfo: function(){
-    var station = this;
-    var url = "http://localhost:4000/incidents?";
-    // var url = "http://localhost:4000/stations.json";
-    station.incidents = [];
-    var request = $.getJSON(url).then(function(response){
-      for(var i = 0; i < response.length; i++){
-        station.incidents.push(new Incident(response[i]));
-      }
-    }).fail(function(repsonse){
-      console.log("js failed to load");
-    });
     return request;
   }
 }

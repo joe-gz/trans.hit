@@ -1,5 +1,7 @@
 // require mongoose
 var mongoose = require('mongoose')
+// var mongodbUri = 'mongodb://localhost/transhit';
+// var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
 
 var Schema = mongoose.Schema,
 ObjectId = Schema.ObjectId
