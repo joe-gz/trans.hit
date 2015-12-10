@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
-var conn = mongoose.connect('mongodb://localhost/transhit')
+var mongodbUri = 'mongodb://localhost/transhit';
+var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
 var StationModel = require("../models/station")
 var CommentModel = require("../models/comment")
 var UserModel = require("../models/user")
@@ -47,28 +48,6 @@ var greensboro = new StationModel({
 var easternMarket = new StationModel({
   name:"Eastern Market",
   metroLine:"Blue",
-})
-
-var mcPherson = new StationModel({
-  name:"McPherson Square",
-  metroLine:"Orange,Blue,Silver"
-})
-
-var metroCenter = new StationModel({
-  name:"Metro Center",
-  metroLine:"Orange,Blue,Silver",
-})
-
-var comment1 = new CommentModel({
-  text:"Dupont is the worst"
-})
-
-var comment2 = new CommentModel({
-  text:"mcPhereson is the 2nd worst"
-})
-
-var comment3 = new CommentModel({
-  text:"Metro Center is fine"
 })
 
 var stations = [faragutNorth,rockville,dupont,fortTotten,vienna,metroCenter,greensboro,easternMarket];

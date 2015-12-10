@@ -37,7 +37,6 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        {{user}}
         {{#if currentUser}}
         <li class="logout"><a href="/logout">Logout</a></li>
         {{else}}
@@ -45,6 +44,7 @@
         <li class="signup"><a href="#">Signup</a></li>
         {{/if}}
       </ul>
+
       <div class="choosestation">
         <select class="selectpicker" data-style="btn-info">
           <option data-hidden="true">Choose Station</option>
@@ -104,7 +104,7 @@
     <hr>
 
     <div class="stations">
-        {{{body}}}
+      {{{body}}}
     </div>
 
   </div>

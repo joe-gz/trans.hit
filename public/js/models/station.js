@@ -65,7 +65,6 @@ Station.prototype = {
   fetchComments: function(){
     var station = this;
     var url = "/stations/" + station.id + "/comments";
-    // var url = "http://localhost:4000/stations.json";
     station.comments = [];
     var request = $.getJSON(url).then(function(response){
       for(var i = 0; i < response.length; i++){

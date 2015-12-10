@@ -12,8 +12,8 @@ var session      = require('express-session');
 var hbs          = require("hbs");
 
 var path = require('path')
-
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/transhit')
+var mongodbUri = 'mongodb://localhost/transhit';
+mongoose.connect(process.env.MONGOLAB_URI || mongodbUri)
 
 // allows for parameters in JSON and html
 app.use(bodyParser.json());
