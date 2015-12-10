@@ -26,6 +26,8 @@ router.put("/:id", function(req, res){
   });
 });
 
+
+
 router.post("/stations/:id/comments", function(req, res){
   StationModel.findById(req.params.id, function(err, station){
     var comment = new CommentModel(req.body.comments)

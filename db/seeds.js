@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
-var mongodbUri = 'mongodb://localhost/transhit';
-var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
+var conn = mongoose.connect('mongodb://localhost/transhit')
 var StationModel = require("../models/station")
 var CommentModel = require("../models/comment")
 var UserModel = require("../models/user")
@@ -19,14 +18,8 @@ var dupont = new StationModel({
   name:"DuPont Circle",
   metroLine:"Red",
 })
-
-var rockville = new StationModel({
-  name:"Rockville",
-  metroLine:"Red",
-})
-
-var faragutNorth = new StationModel({
-  name:"Faragut North",
+var metroCenter = new StationModel({
+  name:"Metro Center",
   metroLine:"Red",
 })
 
@@ -45,12 +38,35 @@ var greensboro = new StationModel({
   metroLine:"Silver",
 })
 
+var mcPherson = new StationModel({
+  name:"McPherson Square",
+  metroLine:"Silver"
+})
+
 var easternMarket = new StationModel({
   name:"Eastern Market",
   metroLine:"Blue",
 })
 
-var stations = [faragutNorth,rockville,dupont,fortTotten,vienna,greensboro,easternMarket];
+var Huntington = new StationModel({
+  name:"DuPont Circle",
+  metroLine:"Yellow",
+})
+
+
+// var comment1 = new CommentModel({
+//   text:"Dupont is the worst"
+// })
+//
+// var comment2 = new CommentModel({
+//   text:"mcPhereson is the 2nd worst"
+// })
+//
+// var comment3 = new CommentModel({
+//   text:"Metro Center is fine"
+// })
+
+var stations = [dupont,Huntington,fortTotten,vienna,metroCenter,greensboro,easternMarket];
 console.log(stations);
 // var comments = [comment1,comment2,comment3];
 // console.log(comments);

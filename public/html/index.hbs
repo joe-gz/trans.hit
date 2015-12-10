@@ -33,96 +33,121 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">trans.hit</a>
+        <a class="navbar-brand" href="#">Trans.HIT</a>
       </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        {{#if currentUser}}
-        <li class="logout"><a href="/logout">Logout</a></li>
-        {{else}}
-        <li class="login"><a href="#">Login</a></li>
-        <li class="signup"><a href="#">Signup</a></li>
-        {{/if}}
-      </ul>
-
-      <div class="choosestation">
-        <select class="selectpicker" data-style="btn-info">
-          <option data-hidden="true">Choose Station</option>
-          <option value="Red">Red</option>
-          <option value="Blue"> Blue</option>
-          <option value="Orange">Orange</option>
-          <option value="Green">Green</option>
-          <option value="Yellow">Yellow</option>
-          <option value="Silver">Silver</option>
-        </select>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<div class = "container">
+        <ul class="nav navbar-nav navbar-right">
+          {{user}}
+          {{#if currentUser}}
+          <li class="logout"><a href="/logout">Logout</a></li>
+          {{else}}
+          <li class="login"><a href="#">Login</a></li>
+          <li class="signup"><a href="#">Signup</a></li>
+          {{/if}}
+        </ul>
+              <div class="choosestation">
+                    <select class="selectpicker" >
+                      <option >Choose Metro Line</option>
+                      <option class="red" value="Red">Red</option>
+                      <option class="blue" value="Blue"> Blue</option>
+                      <option class="orange" value="Orange">Orange</option>
+                      <option class="green" value="Green">Green</option>
+                      <option class="yellow" value="Yellow">Yellow</option>
+                      <option class="silver" value="Silver">Silver</option>
+                    </select>
+                </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class = "container">
+    <h4>If you can't stand bland wmata alerts, we're here to solve your problem.
+      Use trans.HIT to post live comments about what's going on underground.
+      Log in to get started.</h4>
+    <!-- signup form  -->
   <div class="signup-form">
     <h2>Signup</h2>
-    <form method="post" action="/signup">
+    <form class="form-horizontal" method="post" action="/signup">
       <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" id="email">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="email" id="email" placeholder="Email">
+        </div>
       </div>
-
       <div class="form-group">
-        <label for="email">Password</label>
-        <input class="form-control" type="password" name="password" id="password">
+        <label for="email" class="col-sm-2 control-label">Password</label>
+         <div class="col-sm-10">
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+        </div>
       </div>
-
+        <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-10">
       <input class="btn btn-default signup-button" type="submit">
+    </div>
+  </div>
     </form>
   </div> <!--end signup form-->
 
-  <h4>If you can't stand bland wmata alerts, we're here to solve your problem.
-    Use trans.HIT to post live comments about what's going on underground.
-    Log in to get started.</h4>
-
+  <!-- login form  -->
   <div class="login-form">
     <h2>Login</h2>
-    <form method="post" action="/login">
+    <form class="form-horizontal" method="post" action="/login">
       <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" id="email">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+         <div class="col-sm-10">
+        <input class="form-control" type="text" name="email" id="email" placeholder="Email">
+        </div>
       </div>
-
       <div class="form-group">
-        <label for="email">Password</label>
-        <input class="form-control" type="password" name="password" id="password">
+        <label for="email" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+        </div>
       </div>
+      <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
       <input class="btn btn-default login-button" type="submit">
+    </div>
+  </div>
     </form>
   </div><!--end login form-->
 
-  <div class="row ">
-    <div class = "col-md-12 metromaping">
-      <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
+    <div class="row ">
+      <div class = "col-md-12 metromaping">
+        <!-- zoomTarget data-targetsize="0.45" data-duration="600"  -->
 
+      </div>
     </div>
-  </div>
-  <div class="row">
-
     <hr>
-
-    <div class="stations">
-      {{{body}}}
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="commentdiv">
-
-    </div>
+    <div class="row">
+  <div class="wmata">
   </div>
 </div>
+    <div class="row">
+      <div class="stations">
+        <div class="stationInfo">
+          {{{body}}}
+        </div>
+      </div>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.min.js"></script>
-<!-- for zooming -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomooz/1.1.6/jquery.zoomooz.min.js"></script> -->
+    <div class="row">
+      <div class="commentdiv">
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.min.js"></script>
 </body>
