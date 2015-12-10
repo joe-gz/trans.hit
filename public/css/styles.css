@@ -21,6 +21,7 @@ hr{
   color: red;
   font-style: italic;
   text-align: center;
+  font-size: 1em; 
 }
 .signup-form, .login-form {
   display:none;
