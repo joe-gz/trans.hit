@@ -24,19 +24,30 @@ p{
   padding: 10px;
 
 }
-.comments{
-  margin: 10px;
+.comment{
+  margin-bottom: 50px;
 }
 
 .commentbox{
     border: 2px solid #262626;
-    width: 400px;
+    width: 300px;
     min-height: 100px;
     text-align: center;
     border-radius: 100px / 50px;
      box-shadow: 0 0 30px black;
      margin: 15px;
      margin: 0 auto;
+}
+
+.showComments{
+    margin-bottom:20px;
+}
+/*.commentbutton{
+  margin-bottom:20px;
+}*/
+
+.submitComment{
+  margin:10px;
 }
 
 .centerdiv{

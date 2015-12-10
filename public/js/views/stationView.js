@@ -25,7 +25,7 @@ StationView.prototype = {
     var station = this.station;
     var html = $("<div class='stationInfo centerdiv'>");
     html.append("<h3 class= 'stationdiv'>" + station.name + ':'+"</h3>");
-    html.append("<div><button class='showComments btn btn-default'>Show Comments</button></div>");
+    html.append("<div class='commentbutton'><button class='showComments btn btn-default'>Show Comments</button></div>");
     html.append("<div class='comments'></div>");
     return(html);
   },
@@ -34,7 +34,7 @@ StationView.prototype = {
     if(commentsDiv.is(":visible")){
       commentsDiv.siblings("button.showComments").text("Hide Comments");
     } else {
-      commentsDiv.siblings("button.showComments").text("Show Comments");
+      commentsDiv.siblings("bbutton.showComments").text("Show Comments");
     }
   },
   toggleComments: function(commentsDiv){
