@@ -45,6 +45,14 @@ StationView.prototype = {
         self.prependComments(self.station.comments, commentsDiv);
       });
     }
+
+    $('.deleteComment').on("click", function() {
+      console.log("clicked?");
+      console.log(self);
+      console.log(self.comments);
+      self.station.comments[0].destroy().then(function() { self.$el.fadeOut()});
+    });
+
     // toggle (note: commentsDiv starts hidden)
     commentsDiv.toggle();
     self.toggleButton(commentsDiv);
