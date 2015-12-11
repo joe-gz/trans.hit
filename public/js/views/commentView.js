@@ -11,12 +11,13 @@ CommentView.prototype = {
     var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+
     "<button class='deleteComment'>Delete Comment</button>"+"</div>");
     var deleteButton = self.$el.find(".deleteComment");
+    console.log(commentText);
     console.log(deleteButton);
 
-    // deleteButton.click(function() {
-    //   console.log("clicked?");
-    //   self.comments.destroy();
-    // });
+    commentText.on("click", function() {
+        console.log("clicked?");
+        self.comments.destroy().then(function() { commentText.fadeOut()});
+    });
 
     return(commentText)
   }
