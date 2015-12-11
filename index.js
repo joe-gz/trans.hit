@@ -55,8 +55,6 @@ require('./config/passport')(passport);
 app.use(function (req, res, next) {
   global.currentUser = req.user;
   res.locals.currentUser = req.user;
-  console.log("index.js1"+currentUser);
-  var user = console.log("Index.hbs"+currentUser);
   next();
 });
 
@@ -73,10 +71,8 @@ app.get('/logout', function (req, res){
 });
 
 app.get ("/incidents", function(req, res) {
-  console.log("Call API?");
   var url = "https://api.wmata.com/Incidents.svc/json/Incidents?api_key=" + env.api_key
   request(url, function(error, response, body) {
-    console.log(url)
     var incidents = JSON.parse(body)
     res.json(incidents);
   });

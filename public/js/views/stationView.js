@@ -14,12 +14,14 @@ StationView.prototype = {
     var commentsDiv = self.$el.find("div.comments");
     var stationInfo = self.$el.find(".stationInfo")
     var showButton = self.$el.find(".showComments");
+    console.log(showButton+"showbutton");
     commentsDiv.hide(); // hide div until it's populated with comments
 
 
     showButton.on("click", function(){
       self.toggleComments(commentsDiv);
     });
+
   },
   StationTemplate: function(){
     var station = this.station;
@@ -45,6 +47,14 @@ StationView.prototype = {
         self.prependComments(self.station.comments, commentsDiv);
       });
     }
+
+    $('.deleteComment').on("click", function() {
+      console.log("clicked?");
+      console.log(self);
+      console.log(self.comments);
+      self.station.comments[0].destroy().then(function() { self.$el.fadeOut()});
+    });
+
     // toggle (note: commentsDiv starts hidden)
     commentsDiv.toggle();
     self.toggleButton(commentsDiv);
@@ -74,8 +84,5 @@ StationView.prototype = {
     console.log(commentsDiv);
     self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
     // commentsDiv.prepend(commentView.render());
-  },
-  stationClear: function() {
-    $('.stations').empty();
   }
 }

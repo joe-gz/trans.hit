@@ -14,16 +14,16 @@ var UserSchema = new Schema({
 
 var CommentSchema = new Schema({
   text: String,
-  user: [UserSchema]
+  user: [UserSchema],
+  station: {type: ObjectId, ref: "Station"}
 })
 
 var StationSchema = new Schema({
   name: String,
   metroLine: String,
   description: String,
-  comments: [CommentSchema]
-})
-
+  comments: [{type: ObjectId, ref: "Comment"}]
+});
 
 var StationSchema = mongoose.model("Station", StationSchema)
 var CommentSchema = mongoose.model("Comment", CommentSchema)

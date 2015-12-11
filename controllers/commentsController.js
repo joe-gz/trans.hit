@@ -15,7 +15,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/:id", function(req, res){
-  CommentModel.findById(req.params.id).populate("station", "name").then(function(comment){
+  CommentModel.findById(req.params.id).then(function(comment){
     res.json(comment);
   });
 });
@@ -29,20 +29,53 @@ router.put("/:id", function(req, res){
 router.post("/stations/:id/comments", function(req, res){
   StationModel.findById(req.params.id, function(err, station){
     var comment = new CommentModel(req.body.comments)
-    station.comments.push(comment);
-    station.save().then(function(err, docs){
-      res.json(comment)
+    console.log("logged?");
+    comment.station = station.id
+    comment.save(function(err,comment){
+      console.log(station.id);
+      station.comments.push(comment);
+      station.save(function(){
+        console.log("hello");
+        console.log(comment);
+        res.json(comment)
+      })
     })
+    // station.comments.push(comment);
+    // station.save().then(function(err, docs){
+    //   res.json(comment)
+    // })
   })
 });
 
-router.delete("/:id", function(req, res){
-  CommentModel.findByIdAndRemove(req.params._id).then(function(err, doc){
-   console.log("err/doc"+err,doc)
-    console.log(req.params.id);
-    console.log("running?");
-    res.json({success: true});
+router.delete("/comments/:id", function(req, res){
+
+
+  console.log("in the loop");
+  console.log(req.params);
+
+  CommentModel.findById(req.params.id).then(function(comment){
+    StationModel.findByIdAndUpdate(comment.station, {
+      $pull: { comments: {_id: req.params.id} }
+    }).then(function(){
+      return comment.remove();
+    }).then(function(){
+      console.log("delete");
+      res.json({success: true});
+    })
   });
+
+  // StationModel.findByIdAndUpdate(req.params.station_id, {
+  //   $pull: { comments: {id: req.params.id} }
+  // }).then(function(){
+  //   console.log("delete");
+  //   res.json({success: true});
+  //   console.log("succes");
+  // })
+
+
+
 });
+
+// /stations/:station_id/comments/
 
 module.exports = router;

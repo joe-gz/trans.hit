@@ -1,6 +1,6 @@
 var Comment = function(info){
   this.text = info.text;
-  this.stationId = info.stationId;
+  this.station = info.station;
   this.id = info._id;
   this.user = info.user;
 };
@@ -8,9 +8,10 @@ var Comment = function(info){
 Comment.prototype = {
   destroy: function() {
     var comment = this
-    console.log("DESTROY");
-    var url = "/"+comment.id;
+    console.log(comment);
+    var url = "/comments/"+comment.id;
     console.log(url);
+    console.log(comment.station);
     var request = $.ajax( {url: url, method: "delete"} );
     console.log(request);
     return request;

@@ -1,23 +1,22 @@
 var CommentView = function(comment){
   this.comments = comment;
-  this.$el = $("<div class='comment'></div>");
+  this.station = comment.station;
+  this.$el = $("<div class='comments'></div>");
 }
 
 CommentView.prototype = {
   render: function(){
     var self = this;
-    var commentText = $("<div class = 'comment'>"+"<p>" + this.comments.text + "</p>"+
+    console.log("comment"+this.comments.id);
+    var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+
     "<button class='deleteComment'>Delete Comment</button>"+"</div>");
     var deleteButton = self.$el.find(".deleteComment");
-    console.log("commentView");
-    console.log("comment text"+commentText);
+    console.log(deleteButton);
 
-    $('.deleteComment').on("click", function() {
-      console.log("clicked?");
-      console.log(self);
-      console.log(self.comments);
-      self.comments.destroy();
-    });
+    // deleteButton.click(function() {
+    //   console.log("clicked?");
+    //   self.comments.destroy();
+    // });
 
     return(commentText)
   }
