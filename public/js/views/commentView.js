@@ -11,7 +11,7 @@ CommentView.prototype = {
     // var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+
     // "<button class='deleteComment'>Delete Comment</button>"+"</div>");
 
-    var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+"</div>");
+    var commentText = $("<div class = 'commentbox'>"+"<p>" + this.comments.text + "</p>"+"</div>");
 
     self.commentAppend(commentText);
     // var deleteButton = self.$el.find(".deleteComment");
