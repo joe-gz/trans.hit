@@ -26,7 +26,6 @@ var Incident = function(incidentInfo){
 Incident.all = []
 Incident.fetch = function(){
   var color = $(".dropdown-menu option:selected").val();
-  console.log(color)
   var url = "/incidents"
   console.log(url);
   $.ajax({
@@ -37,7 +36,7 @@ Incident.fetch = function(){
     console.log(response.Incidents.length);
     for(var i = 0; i < response.Incidents.length; i++){
       Incident.all.push(new Incident(response.Incidents[i]));
-      $('.wmata').prepend("<h2>"+response.Incidents[i].Description+"</h2")
+      $('.stations').prepend("<p>"+response.Incidents[i].Description+"</p")
     }
   }).fail ( function (){
     console.log("Failure");
@@ -77,16 +76,14 @@ Station.prototype = {
   },
   newCommentAdd: function(commentData) {
     var station = this;
-    console.log("hello");
     var url = "/stations/" + String(station.id) + "/comments";
-    console.log("goodbye");
     var request = $.ajax({
       url: url,
       method: "POST",
       data: JSON.stringify(commentData),
       contentType : "application/json",
       success: function(commentData){
-        console.log('Success!');
+        console.log(commentData);
       }
       , error: function(jqXHR, textStatus, err){
         console.log(textStatus)
@@ -96,4 +93,14 @@ Station.prototype = {
     );
     return request;
   }
+  // ,
+  // commentDestroy: function() {
+  //   var station = this
+  //   console.log(station);
+  //   var url = "/stations/"+station.id+"/comments/"+station.comments[0].id;
+  //   console.log(url);
+  //   var request = $.ajax( {url: url, method: "delete"} );
+  //   console.log(request);
+  //   return request;
+  // }
 }
