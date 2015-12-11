@@ -23,9 +23,9 @@ StationView.prototype = {
   },
   StationTemplate: function(){
     var station = this.station;
-    var html = $("<div class='station'>");
-    html.append("<h3 class= 'stationdiv'><a>" + station.name + "</a></h3>");
-    html.append("<button class='showComments'>Show Comments</button>");
+    var html = $("<div class='stationInfo centerdiv'>");
+    html.append("<h3 class= 'stationdiv'>" + station.name + ':'+"</h3>");
+    html.append("<div class='commentbutton'><button class='showComments btn btn-default'>Show Comments</button></div>");
     html.append("<div class='comments'></div>");
     return(html);
   },
@@ -34,7 +34,7 @@ StationView.prototype = {
     if(commentsDiv.is(":visible")){
       commentsDiv.siblings("button.showComments").text("Hide Comments");
     } else {
-      commentsDiv.siblings("button.showComments").text("Show Comments");
+      commentsDiv.siblings("bbutton.showComments").text("Show Comments");
     }
   },
   toggleComments: function(commentsDiv){
@@ -57,8 +57,8 @@ StationView.prototype = {
       var commentView = new CommentView(comment);
       commentsDiv.prepend(commentView.render());
     });
-    commentsDiv.append("<form action/stations/"+station.id+"/comments method=post><input name='"+self.station.id+"' placeholder='enter new comment'>");
-    commentsDiv.append("<button class='submitComment'>Submit Comment</button></form>");
+    commentsDiv.append("<div class='col-md-12'><form action/stations/"+station.id+"/comments method=post><input class='form-control input-lg'  name='"+self.station.id+"' placeholder='enter new comment'></div>");
+    commentsDiv.append("<div><button class='submitComment btn btn-default'>Submit Comment</button></form></div>");
     self.$el.find(".submitComment").on("click", function() {
       // console.log("working?");
       self.submitComment();

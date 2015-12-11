@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Custom CSS-->
   <link rel="stylesheet" href="/css/styles.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Architects Daughter">
 
   <script type="text/javascript" src= "https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src = "js/script.js"></script>
@@ -35,7 +35,6 @@
         </button>
         <a class="navbar-brand" href="/">Trans.HIT</a>
       </div>
-
       <ul class="nav navbar-nav navbar-right">
         {{user}}
         {{#if currentUser}}
@@ -45,7 +44,6 @@
         <li class="signup"><a href="#">Signup</a></li>
         {{/if}}
       </ul>
-      {{#if currentUser}}
       <div class="choosestation">
         <select class="selectpicker" >
           <option >Choose Metro Line</option>
@@ -57,14 +55,16 @@
           <option class="silver" value="Silver">Silver</option>
         </select>
       </div>
-      {{/if}}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <div class = "container">
-  <h4>If you can't stand bland wmata alerts, we're here to solve your problem.
-    Use trans.HIT to post live comments about what's going on underground.
-    Log in to get started.</h4>
+  <div>
+    <h4>If you can't stand dc metro delays, we're here to share your grievances.
+      Use Trans.HIT to post live comments about what's going on underground.
+
+      <br>Sign up to get started.</h4>
+    </div>
     <!-- signup form  -->
     <div class="signup-form">
       <h2>Signup</h2>

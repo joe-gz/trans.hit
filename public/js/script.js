@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   $('.selectpicker').on('change', function(){
     $('.stations').empty();
+    $('.wmata').empty();
     Incident.fetch();
     Station.fetch().then(function(stations){
       Station.all.forEach(function(station){
