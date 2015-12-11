@@ -8,8 +8,8 @@ CommentView.prototype = {
   render: function(){
     var self = this;
     console.log("comment"+this.comments.id);
-    var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+
-    "<button class='deleteComment'>Delete Comment</button>"+"</div>");
+    // var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+
+    // "<button class='deleteComment'>Delete Comment</button>"+"</div>");
 
     var commentText = $("<div class = "+this.comments.id+">"+"<p>" + this.comments.text + "</p>"+"</div>");
 
