@@ -1,15 +1,15 @@
 .metromaping {
-      width: 100%;
-      height: 800px;
-      background-image: url("/images/newMetroImg.jpg");
-      /*background-size: cover;*/
-      background-repeat: no-repeat;
-      background-position: center;
-  }
+  width: 100%;
+  height: 800px;
+  background-image: url("/images/newMetroImg.jpg");
+  /*background-size: cover;*/
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 body {
-padding-top: 100px;
-background: #FEFEFE;
+  padding-top: 100px;
+  background: #FEFEFE;
 }
 
 hr{

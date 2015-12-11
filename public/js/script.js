@@ -40,9 +40,9 @@ $(document).ready(function(){
   //   var selected = $(this).find("option:selected").val();
   //   alert(selected);
   // });
-$('.choosestation').on('change', function(){
-$('html, body').animate({scrollTop: $(document).height()}, 'slow')
-  // $('.station').scrollTop()
-  // console.log(this.value)
-});
+  $('.choosestation').on('change', function(){
+    $('html, body').animate({scrollTop: $(document).height()}, 'slow')
+    // $('.station').scrollTop()
+    // console.log(this.value)
+  });
 });//document.ready end
