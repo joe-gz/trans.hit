@@ -32,9 +32,9 @@ StationView.prototype = {
 
   toggleButton: function(commentsDiv){
     if(commentsDiv.is(":visible")){
-      commentsDiv.siblings("button.showComments").text("Hide Comments");
+      commentsDiv.siblings(".showComments").text("Hide Comments");
     } else {
-      commentsDiv.siblings("bbutton.showComments").text("Show Comments");
+      commentsDiv.siblings(".showComments").text("Show Comments");
     }
   },
   toggleComments: function(commentsDiv){
