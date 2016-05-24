@@ -5,7 +5,7 @@ var CommentModel = require("../models/comment");
 
 function error(response, message){
   response.status(500);
-  response.json({error: message})
+  response.json({error: message});
 }
 
 router.get("/", function(req, res){
@@ -30,23 +30,23 @@ router.put("/:id", function(req, res){
 
 router.post("/stations/:id/comments", function(req, res){
   StationModel.findById(req.params.id, function(err, station){
-    var comment = new CommentModel(req.body.comments)
+    var comment = new CommentModel(req.body.comments);
     console.log("logged?");
-    comment.station = station.id
+    comment.station = station.id;
     comment.save(function(err,comment){
       console.log(station.id);
       station.comments.push(comment);
       station.save(function(){
         console.log("hello");
         console.log(comment);
-        res.json(comment)
-      })
-    })
+        res.json(comment);
+      });
+    });
     // station.comments.push(comment);
     // station.save().then(function(err, docs){
     //   res.json(comment)
     // })
-  })
+  });
 });
 
 router.delete("/comments/:id", function(req, res){
@@ -63,7 +63,7 @@ router.delete("/comments/:id", function(req, res){
     }).then(function(){
       console.log("delete");
       res.json({success: true});
-    })
+    });
   });
 
   // StationModel.findByIdAndUpdate(req.params.station_id, {

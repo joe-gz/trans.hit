@@ -7,7 +7,7 @@ var Comment = function(info){
 
 Comment.prototype = {
   destroy: function() {
-    var comment = this
+    var comment = this;
     console.log(comment);
     var url = "/comments/"+comment.id;
     console.log(url);
@@ -16,4 +16,4 @@ Comment.prototype = {
     console.log(request);
     return request;
   }
-}
+};

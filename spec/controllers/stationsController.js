@@ -27,7 +27,7 @@ router.get("/stations/:id/comments", function(req, res){
 
 router.get("/lines/:color", function(req, res){
   StationModel.find({metroLine: req.params.color}).then(function(station){
-    console.log("lines/color")
+    console.log("lines/color");
     res.json(station);
   });
 });

@@ -8,11 +8,11 @@ var StationView = function(station){
 StationView.prototype = {
   render: function(){
     var self = this;
-    var station = self.station
-    var metro = self.metroLine
+    var station = self.station;
+    var metro = self.metroLine;
     self.$el.html(self.StationTemplate());
     var commentsDiv = self.$el.find("div.comments");
-    var stationInfo = self.$el.find(".stationInfo")
+    var stationInfo = self.$el.find(".stationInfo");
     var showButton = self.$el.find(".showComments");
     commentsDiv.hide(); // hide div until it's populated with comments
 
@@ -67,11 +67,11 @@ StationView.prototype = {
   submitComment: function() {
     var self = this;
     console.log(self);
-    var data = $('input[name='+self.station.id+']').val()
+    var data = $('input[name='+self.station.id+']').val();
     console.log(data);
     var commentView = new CommentView({text: data});
     var commentsDiv = self.$el.find("div.comments");
-    var stationInfo = self.$el.find(".stationInfo")
+    var stationInfo = self.$el.find(".stationInfo");
     console.log(commentsDiv);
     self.station.newCommentAdd(commentView).then(function() { commentsDiv.prepend(commentView.render()); });
     // commentsDiv.prepend(commentView.render());
@@ -79,4 +79,4 @@ StationView.prototype = {
   stationClear: function() {
     $('.stations').empty();
   }
-}
+};

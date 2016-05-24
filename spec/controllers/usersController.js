@@ -1,8 +1,8 @@
 
-var passport = require("passport")
-var mongoose = require('mongoose')
+var passport = require("passport");
+var mongoose = require('mongoose');
 var session  = require('express-session');
-require('../config/passport')(passport)
+require('../config/passport')(passport);
 // GET /signup
 function getSignup(request, response) {
   response.render("index.hbs"

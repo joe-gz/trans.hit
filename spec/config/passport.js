@@ -26,12 +26,12 @@ module.exports = function(passport) {
       }
       // If no user is found
       if (!user) {
-        console.log("no user found")
+        console.log("no user found");
          return callback(null, false);
       }
       // Wrong password
       if (!user.validPassword(password)) {
-        console.log("wrong password")
+        console.log("wrong password");
         return callback(null, false);
         //  return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
       }
@@ -50,7 +50,7 @@ module.exports = function(passport) {
 
       // If there already is a user with this email
       if (user) {
-        console.log("email already in use")
+        console.log("email already in use");
         return callback(null, false);
         // return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
       } else {
@@ -68,4 +68,4 @@ module.exports = function(passport) {
       }
     });
   }));
-}
+};

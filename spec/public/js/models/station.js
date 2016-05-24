@@ -23,10 +23,10 @@ var Incident = function(incidentInfo){
 //   });
 //   return request;
 // };
-Incident.all = []
+Incident.all = [];
 Incident.fetch = function(){
   var color = $(".dropdown-menu option:selected").val();
-  var url = "/incidents"
+  var url = "/incidents";
   console.log(url);
   $.ajax({
     url: url,
@@ -36,19 +36,19 @@ Incident.fetch = function(){
     console.log(response.Incidents.length);
     for(var i = 0; i < response.Incidents.length; i++){
       Incident.all.push(new Incident(response.Incidents[i]));
-      $('.stations').prepend("<p>"+response.Incidents[i].Description+"</p")
+      $('.stations').prepend("<p>"+response.Incidents[i].Description+"</p");
     }
   }).fail ( function (){
     console.log("Failure");
   }).always( function(){
     console.log("Something's happening");
-  })
+  });
 };
 
-Station.all = []
+Station.all = [];
 Station.fetch = function(){
   var color = $(".selectpicker option:selected").val();
-  console.log(color)
+  console.log(color);
   var url = "/lines/" + color;
   var request = $.getJSON(url).then(function(response){
     for(var i = 0; i < response.length; i++){
@@ -84,9 +84,8 @@ Station.prototype = {
       contentType : "application/json",
       success: function(commentData){
         console.log(commentData);
-      }
-      , error: function(jqXHR, textStatus, err){
-        console.log(textStatus)
+      }, error: function(jqXHR, textStatus, err){
+        console.log(textStatus);
       }
     }).then(
       console.log("Done")
@@ -103,4 +102,4 @@ Station.prototype = {
   //   console.log(request);
   //   return request;
   // }
-}
+};

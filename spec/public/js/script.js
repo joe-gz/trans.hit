@@ -6,11 +6,11 @@ $(document).ready(function(){
     Incident.fetch();
     Station.fetch().then(function(stations){
       Station.all.forEach(function(station){
-        var view = new StationView(station)
+        var view = new StationView(station);
         // view.render();
-      })
-    })
-  })
+      });
+    });
+  });
 
 
   $('.signup').on('click', function(){
@@ -21,7 +21,7 @@ $(document).ready(function(){
     } else {
       $('.signup-form').hide();
     }
-  })
+  });
 
   $('.login').on('click', function(){
     var cssSelect = $('.login-form').css('display');
@@ -31,10 +31,10 @@ $(document).ready(function(){
     } else {
       $('.login-form').hide();
     }
-  })
+  });
 
   //dropdown metroline functionality
-  $('.selectpicker').selectpicker('refresh')
+  $('.selectpicker').selectpicker('refresh');
   // $('select[name=selValue]').val(1);
   // $('.selectpicker').selectpicker('refresh')
   // $('.selectpicker').on('change', function(){
@@ -42,7 +42,7 @@ $(document).ready(function(){
   //   alert(selected);
   // });
   $('.choosestation').on('change', function(){
-    $('html, body').animate({scrollTop: $(document).height()}, 'slow')
+    $('html, body').animate({scrollTop: $(document).height()}, 'slow');
     // $('.station').scrollTop()
     // console.log(this.value)
   });

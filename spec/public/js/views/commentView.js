@@ -2,7 +2,7 @@ var CommentView = function(comment){
   this.comments = comment;
   this.station = comment.station;
   this.$el = $("<div class='comments'></div>");
-}
+};
 
 CommentView.prototype = {
   render: function(){
@@ -22,7 +22,7 @@ CommentView.prototype = {
     //   console.log("clicked?");
     //   self.comments.destroy().then(function() { commentText.fadeOut()});
     // });
-    return(commentText)
+    return(commentText);
   },
   commentAppend: function(commentText) {
     var self = this;
@@ -64,4 +64,4 @@ CommentView.prototype = {
   editComment: function(){
     console.log("edit??");
   }
-}
+};

@@ -1,11 +1,11 @@
-var Station = require("../models/station")
-var User = require("../models/user")
+var Station = require("../models/station");
+var User = require("../models/user");
 
 describe ("a Station",function() {
   var dupont;
   beforeEach(function(){
     dupont = new Station({name:"DuPont Circle",metroLine:"Red"});
-  })
+  });
 
   it ("should have a name", function() {
     expect(dupont.name).toBeDefined();
@@ -21,7 +21,7 @@ describe ("a User",function() {
   var joe;
   beforeEach(function(){
     joe = new User({name:"Joe",email:"j@example.com",password:"12345678"});
-  })
+  });
 
   it ("should have a name", function() {
     expect(joe.name).toBe("Joe");
@@ -42,7 +42,7 @@ describe ("a User",function() {
     name: "Joe",
     email: "j@example.com",
     password: "bob",
-  })
+  });
 
   it ("should have a name", function() {
     expect(joe.name).toBeDefined();
@@ -60,7 +60,7 @@ describe ("a User",function() {
 
   });
 
-})
+});
 
 
 describe ("a Comment",function(){
@@ -76,4 +76,4 @@ describe ("a Comment",function(){
 
   });
 
-})
+});
